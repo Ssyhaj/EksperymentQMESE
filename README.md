@@ -1,21 +1,21 @@
-# EksperymentQMESE
+# QMESE Experiment
 
-Prosimy o brak komunikacji między grupami, nie podsłuchiwanie pozostałych uczestników z własnej grupy. Kod prosimy odpalić w Codespaces, bez instalowania dodatkowych narzędzi. Korzystanie z internetu jest dozwolone w zakresie korzystania z poradników/tutoriali kodu, ale samo przeklejanie raportów jest niedozwolone (AI też oczywiście odpada). 
+Please avoid communication between groups and do not listen in on other participants from your own group. Run the code in Codespaces without installing additional tools. Using the internet for code guides/tutorials is allowed, but copying reports directly is not permitted (AI is also obviously not allowed).
 
-Jakość pracy pojedynczego studenta nie będzie oceniana w żaden sposób, więc nie trzeba sie o nią martwić!
+The quality of an individual student’s work will not be evaluated in any way, so there’s no need to worry about it!
 
-## Część I
-### Grupa 1: 
-W parach otwiera kod graph_algorithms.java (Metoda działania w parach jest dowolna. Dwa komputery, jeden komputer, ciągła komunikacja, albo tylko dyskusja o zgłoszonych błędach)
+## Part I
+### Group 1:
+In pairs, open the file **graph_algorithms.java**  
+(The method of working in pairs is up to you: two computers, one computer, continuous communication, or simply discussing reported errors.)
 
-### Grupa 2:
-Pojedynczo bada kod graph_algorithms.java.java
+### Group 2:
+Individually examine the file **graph_algorithms.java**
 
+## Part II
+### Group 1:
+Individually examine the file **tree_and_binary_search.java**
 
-
-## Część II
-### Grupa 1: 
-Pojedynczo bada kod tree_and_binary_search.java
-
-### Grupa 2:
-W parach otwiera kod tree_and_binary_search.java (Metoda działania w parach jest dowolna. Dwa komputery, jeden komputer, ciągła komunikacja, albo tylko dyskusja o zgłoszonych błędach)
+### Group 2:
+In pairs, open the file **tree_and_binary_search.java**  
+(The method of working in pairs is up to you: two computers, one computer, continuous communication, or simply discussing reported errors.)
