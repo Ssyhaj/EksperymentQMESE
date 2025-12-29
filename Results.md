@@ -46,9 +46,6 @@ The following hypotheses were formulated a priori:
 - H1₀: There is no significant difference in the number of defects found between solo and pair code review (μ_pair = μ_solo)
 - H1₁: Pairs find significantly more defects than individuals working solo (μ_pair > μ_solo)
 
-**H2 (Time Efficiency):**
-- H2₀: There is no significant difference in time to detect defects between solo and pair code review (μ_time_solo = μ_time_pair)
-- H2₁: Solo code review is significantly faster in defect detection (μ_time_solo < μ_time_pair)
 
 ### Variables and Confounding Factors
 
@@ -360,7 +357,7 @@ After the experiment:
 
 Given the within-subjects repeated measures design, the following tests should be selected:
 
-**For H1 and H2**:  Paired t-test (parametric) or Wilcoxon signed-rank test (non-parametric)
+**For H1**:  Paired t-test (parametric) or Wilcoxon signed-rank test (non-parametric)
 - Justification: Within-subjects design with continuous dependent variables
 - Assumption checks: **You must perform Shapiro-Wilk normality tests** on: 
   - Differences in defect counts (pair - solo) for each participant
@@ -424,46 +421,6 @@ Given the within-subjects repeated measures design, the following tests should b
 - Effect size (Cohen's d): d = **[YOUR CALCULATION]**
 - Decision: [Reject / Fail to reject] H1₀ at α = 0.05
 - Interpretation: **[Based on your results, state whether pairs found significantly more defects, and the magnitude of the effect]**
-
-**H2: Time Efficiency**
-
-**IMPORTANT NOTE:** Your data tables do **not** contain any time measurements. The experiment tracked:
-- Time to first defect
-- Average time between defects
-- Total session time
-
-**These metrics are not available in the provided tables.**
-
-**You have two options:**
-
-1. **If you have timing data elsewhere**: Complete the same analysis procedure as H1:
-   - Test normality of time difference scores
-   - Perform paired t-test or Wilcoxon test
-   - Calculate effect size
-   - Report results
-
-2. **If you do NOT have timing data**: Remove this entire section from the report, including: 
-   - H2 hypothesis from the Experiment Design section
-   - RQ2 from the Research Questions
-   - All references to time efficiency throughout the document
-   - "Average time between defects" from dependent variables
-
-**If timing data exists (to be completed by you):**
-
-*Null Hypothesis (H2₀)*: μ_time_solo = μ_time_pair
-
-*Alternative Hypothesis (H2₁)*: μ_time_solo < μ_time_pair (one-tailed)
-
-- Test used: **[You must determine based on normality test]**
-- Test statistic: **[YOUR CALCULATION]**
-- p-value: p = **[YOUR CALCULATION]**
-- Effect size: d = **[YOUR CALCULATION]**
-- Decision: **[YOUR CONCLUSION]**
-- Interpretation: **[YOUR INTERPRETATION]**
-
-**If timing data does NOT exist:**
-
-**Remove this hypothesis entirely and update RQ2.**
 
 **Power Analysis:**
 
@@ -886,11 +843,6 @@ This experiment investigated the effectiveness of pair code review compared to s
    - **[Report statistics]**: Mean defects for pairs = **[X.XX ± SD]**, solo = **[X.XX ± SD]**, **[test name]** **[statistic]** = **[value]**, p = **[value]**, Cohen's d = **[value]**. 
    - **[Interpret effect size]**: The effect size was **[small/medium/large/negligible]**, suggesting **[practical significance statement]**.
 
-2. **[Time Efficiency (H2) - if data available]**:
-   - **[State your finding]**: Solo review was **[significantly faster/similar speed/slower]** than pair review. 
-   - **[Report statistics]**:  **[Include your statistics here]**
-   - **[Interpret]**: **[Practical implications of time findings]**
-
 3. **[False Positive Rates]**:
    - **[State your finding]**: Pairs had **[higher/similar/lower]** false positive rates compared to solo. 
    - **[Report rates]**: Solo FP rate = **[X.XX%]**, Pair FP rate = **[X.XX%]**
@@ -979,9 +931,6 @@ The main limitations of this study include:
    - The pair condition showed enormous variability (**[range]** defects), suggesting that **how** pairs collaborate matters as much as **whether** they collaborate.
    - Some pairs may have had poor dynamics (one person dominant, poor communication).
 
-7. **Missing time data** (if applicable):
-   - **[If you deleted H2]**: Time efficiency could not be analyzed due to lack of timing measurements.
-   - Future studies should track time to assess cost-benefit trade-offs.
 
 **Future Work:**
 
