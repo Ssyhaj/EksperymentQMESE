@@ -73,7 +73,7 @@ The following hypotheses were formulated a priori:
 
 3. **Code difficulty**: Controlled by using two code samples (Code A:  Binary Search Tree, Code B: User Authentication System) with similar characteristics: 
    - Both contain exactly 10 deliberately inserted defects
-   - Similar lines of code (~150 LOC each)
+   - Similar lines of code (~500 LOC each)
    - Similar distribution of defect severity
    - Both represent realistic programming scenarios
 
