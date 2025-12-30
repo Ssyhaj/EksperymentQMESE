@@ -1,4 +1,4 @@
-# Report from Controlled Experiment:  Code Review Solo vs.  Pairs
+# Report from Controlled Experiment: Code Review Solo vs. Pairs
 
 **Authors:**
 
@@ -14,16 +14,15 @@ Poznan, 22. 12.2025
 
 This report presents the design and summarizes results of the experiment **"Code Review Solo vs. Pairs:  A Comparative Study of Defect Detection Effectiveness"**. The experiment was part of a project realized within the Quality Management and Experimental Software Engineering classes at Poznan University of Technology.
 
-The motivation for this study stems from the ongoing debate in software engineering about the effectiveness of pair programming and collaborative code review practices. While pair programming has been studied extensively, the specific context of code review—where developers systematically examine code to find 
-defects—presents unique characteristics that warrant separate investigation.  Understanding whether working in pairs improves defect detection during code review has practical implications for software development teams seeking to optimize their quality assurance processes.
+The motivation for this study stems from the ongoing debate in software engineering about the effectiveness of pair programming and collaborative code review practices. While pair programming has been studied extensively, the specific context of code review—where developers systematically examine code to find defects—presents unique characteristics that warrant separate investigation.  Understanding whether working in pairs improves defect detection during code review has practical implications for software development teams seeking to optimize their quality assurance processes.
 
 ---
 
 ## Experiment Definition
 
-The goal of the experiment was to: 
+The goal of the experiment was to:  
 
-- **Object of study**: Code review process performed by students
+- **Object of study**:  Code review process performed by students
 - **Purpose**: Compare and evaluate
 - **Quality focus**: Defect detection effectiveness (number of defects found, false positive rate, and time efficiency)
 - **Perspective**: From the viewpoint of software developers and quality assurance practitioners
@@ -32,7 +31,7 @@ The goal of the experiment was to:
 **Research Questions:**
 
 - RQ1: Does pair code review result in more defects being detected compared to solo code review?
-- RQ2: Is solo code review faster in terms of defect detection speed? 
+- RQ2: Is solo code review faster in terms of defect detection speed?  
 
 ---
 
@@ -44,7 +43,7 @@ The following hypotheses were formulated a priori:
 
 **H1 (Defect Detection):**
 - H1₀: There is no significant difference in the number of defects found between solo and pair code review (μ_pair = μ_solo)
-- H1₁: Pairs find significantly more defects than individuals working solo (μ_pair > μ_solo)
+- H1₁:  Pairs find significantly more defects than individuals working solo (μ_pair > μ_solo)
 
 
 ### Variables and Confounding Factors
@@ -59,7 +58,7 @@ The following hypotheses were formulated a priori:
 1. **Number of defects found**:  Continuous variable (0-10 scale)
    - Measurement: Count of valid defects reported by participant/pair
    
-2. **False positive rate**: Continuous variable (0-1 scale)
+2. **False positive rate**:  Continuous variable (0-1 scale)
    - Calculation: FP / (True Positives + FP)
 
 **Controlled Confounding Factors:**
@@ -68,13 +67,13 @@ The following hypotheses were formulated a priori:
 
 2. **Learning effect**: Controlled through counterbalancing design—half of participants start with solo review, half start with pair review
 
-3. **Code difficulty**: Controlled by using two code samples (Code A:  Binary Search Tree, Code B: User Authentication System) with similar characteristics: 
-   - Both contain exactly 10 deliberately inserted defects
-   - Similar lines of code (~500 LOC each)
-   - Similar distribution of defect severity
+3. **Code difficulty**: Controlled by using two code samples (Code 1: tree_and_binary_search. java, Code 2: graph_algorithms.java) with similar characteristics:  
+   - Code 1 contains 14 true defects
+   - Code 2 contains 29 true defects
+   - Similar lines of code (~200-500 LOC each)
    - Both represent realistic programming scenarios
 
-4. **Order effects**: Mitigated through counterbalancing—Group 1 reviews Code A then Code B, Group 2 reviews Code B then Code A
+4. **Order effects**: Mitigated through counterbalancing—Group 1 reviews Code 1 then Code 2, Group 2 reviews Code 2 then Code 1
 
 5. **Fatigue**:  Controlled through 5-minute break between sessions and limiting each session to 30 minutes
 
@@ -86,7 +85,7 @@ The following hypotheses were formulated a priori:
 
 ### Participants
 
-**Sample size**:  11 participants (4 solo in Code 1, 3 solo in Code 2, 2 pairs in Code 1, 3 pairs in Code 2)
+**Sample size**:  11 participants (4 solo in Code 1, 4 solo in Code 2, 2 pairs in Code 1, 3 pairs in Code 2)
 
 **Target population**: 5th-year Computer Science students at Poznan University of Technology
 
@@ -100,17 +99,19 @@ The following hypotheses were formulated a priori:
 
 Two Java code samples were used as objects for review:
 
-**Code A (Code 1): Binary Search Tree Implementation**
+**Code 1: tree_and_binary_search. java**
 - Language: Java
-- Approximate size: ~500 lines of code
-- Domain: Data structures
+- Approximate size: ~200-500 lines of code
+- Domain: Data structures (Binary Search Tree)
 - Complexity: Medium (recursive algorithms, tree traversal)
+- Number of true defects: 14
 
-**Code B (Code 2): User Authentication System**
+**Code 2: graph_algorithms.java**
 - Language: Java
-- Approximate size: ~500 lines of code
-- Domain:  Security/authentication
-- Complexity: Medium (cryptography, data structures)
+- Approximate size: ~200-500 lines of code
+- Domain: Graph algorithms
+- Complexity: Medium (graph traversal, shortest path algorithms)
+- Number of true defects: 29
 
 Both code samples contained realistic defects commonly found in real-world code reviews, including null pointer exceptions, security vulnerabilities, logic errors, memory leaks, and style violations.
 
@@ -118,19 +119,19 @@ Both code samples contained realistic defects commonly found in real-world code 
 
 **Design type**: Within-subjects repeated measures with counterbalancing
 
-**Assignment strategy**: Participants were assigned to two groups with counterbalanced order of conditions: 
+**Assignment strategy**: Participants were assigned to two groups with counterbalanced order of conditions:  
 
 **Group 1**:
-- Session 1: Code 1 - SOLO (individual work): Kasia P., Tomek, Ola, Erasmus
-- Session 2: Code 2 - PAIRS (paired in groups of 2): Ola + Dominika, Kasia P. + Tomek, Michal + Erasmus
+- Session 1: Code 1 (tree_and_binary_search.java) - SOLO:  Kasia P., Tomek, Ola, Erasmus
+- Session 2: Code 2 (graph_algorithms. java) - PAIRS: Ola + Dominika, Kasia P. + Tomek, Michal + Erasmus
 
-**Group 2**: 
-- Session 1: Code 1 - PAIRS (paired in groups of 2): Dominik + Kasia R., Mateusz + Piotr
-- Session 2: Code 2 - SOLO (individual work): Kasia R., Dominik, Piotr, Mateusz
+**Group 2**:  
+- Session 1: Code 1 (tree_and_binary_search.java) - PAIRS: Dominik + Kasia R., Mateusz + Piotr
+- Session 2: Code 2 (graph_algorithms.java) - SOLO: Kasia R., Dominik, Piotr, Mateusz
 
-This design ensures that each participant experiences both conditions (solo and pair), which increases statistical power and controls for individual differences.  The counterbalancing controls for order effects and learning effects. 
+This design ensures that each participant experiences both conditions (solo and pair), which increases statistical power and controls for individual differences.  The counterbalancing controls for order effects and learning effects.  
 
-**Pairing strategy**: For pair sessions, participants were paired according to their preferences.  Each pair worked at a single computer, following the driver-navigator pattern where both members actively participated in defect identification.
+**Pairing strategy**: For pair sessions, participants were paired according to their preferences. 
 
 ---
 
@@ -142,13 +143,13 @@ The following materials and instruments were prepared for the experiment:
 
 **1. GitHub Repository Structure:**
 
-A dedicated GitHub repository was created with the following structure: 
+A dedicated GitHub repository was created with the following structure:  
 ```
 code-review-experiment/
 ├── README.md (instructions)
 ├── Form ENG.csv
-├── graph_algorithms.java (code 1)
-├── tree_and_binary_search.java (code 2)
+├── graph_algorithms.java (code 2)
+├── tree_and_binary_search.java (code 1)
 ```
 
 **2. Technical Environment:**
@@ -169,7 +170,7 @@ Comprehensive instructions provided to participants including:
 
 **4. Defect Categories Reference (defect-categories.md):**
 
-Participants were provided with clear definitions of: 
+Participants were provided with clear definitions of:  
 
 **Defect types:**
 - Security:  Authentication, authorization, injection vulnerabilities, sensitive data exposure
@@ -179,29 +180,29 @@ Participants were provided with clear definitions of:
 
 **5. Data Collection Form:**
 
-A structured form was prepared to record: 
+A structured form was prepared to record:  
 - Timestamp (elapsed time from session start)
 - Session number (1 or 2)
 - Participant ID
 - Work mode (Solo/Pair)
-- Code reviewed (A or B)
+- Code reviewed (1 or 2)
 - Line number of defect
 - Defect description
 - Reported severity
 - Reported type
 - Validity assessment (Y/N/?)
 
-**7. Answer Key:**
+**6. Answer Key:**
 
-A comprehensive answer key was prepared listing defects in each code sample with: 
+A comprehensive answer key was prepared listing defects in each code sample with:  
 - Exact line numbers
 - Justification for each classification
 
 ### Execution
 
-**Date and time**: 27. 11.2025
+**Date and time**: 27.11.2025
 
-**Location**:  Poznań
+**Location**: Poznań
 
 **Duration**:  Approximately 60 minutes total
 
@@ -251,13 +252,14 @@ The experiment followed this timeline:
 
 **Data Collection Process:**
 
-During each session, the experimenter:
+During each session, the experimenter: 
 1. Documented participant/pair ID
-2. Did not provide feedback on defect validity during the session
+2. Recorded each reported defect with line number
+3. Did not provide feedback on defect validity during the session
 
 **Post-Experiment Data Processing:**
 
-After the experiment: 
+After the experiment:  
 1. Each reported defect was validated against the answer key
 2. Defects were classified as True Positive (valid) or False Positive (invalid)
 3. Survey responses were collected and linked to participant data
@@ -274,301 +276,386 @@ After the experiment:
 - Total participants: 11 participants
 - Complete data sets (both sessions): 11 participants (all completed both sessions)
 - Excluded participants: None
-- Survey response rate:  Awaiting survey data
+- Survey response rate: 100%
+**Validated Results by Participant/Pair:**
 
-**Raw Data Summary from Tables:**
+**Code 1 (tree_and_binary_search.java) - Solo reviewers:**
 
-**Code 1 (Solo reviewers):**
-- Kasia P.:  1 defect reported (line 196)
-- Tomek: 20 defects reported (lines 464, 480, 481, 6, 7, 12, 24, 42, 60, 72, 74, 78, 87, 105, 108, 111, 105 duplicate, 136, 143, 151, 159, 187)
-- Ola: 2 defects reported (lines 464, 357)
-- Erasmus: 2 defects reported (lines 464, 145)
+**Kasia P. :**
+- Line 196: TP (path corruption issue)
+- **TP = 1, FP = 0, Total = 1**
+- **FP Rate = 0/(1+0) = 0.00 (0%)**
 
-**Code 1 (Pair reviewers):**
-- Dominik + Kasia R.: 2 defects reported (line)
-- Mateusz + Piotr: 1 defect reported (lines 358, 291)
+**Tomek:**
+- TPs: 6, 24, 42, 60, 72, 105 (reported twice but counted once), 136, 159 = **8 unique TPs**
+- FPs: 464, 480, 481, 7, 12, 74, 78, 87, 108, 111, 143, 151, 187 = **13 FPs**
+- Total reported = 20
+- **TP = 8, FP = 12, Total = 20**
+- **FP Rate = 12/(8+12) = 12/20 = 0.60 (60%)**
 
-**Code 2 (Solo reviewers):**
-- Kasia R.: 3 defects reported (lines 19, 153, 419)
-- Dominik: 2 defects reported (lines 19, 47-51, 77-96)
-- Piotr: 0 defects reported
-- Mateusz: 5 defects reported (lines 42, 87, 119, 389, 38, 2137, 39)
+**Ola:**
+- Line 464: FP (out of bounds)
+- Line 357: FP (out of bounds)
+- **TP = 0, FP = 2, Total = 2**
+- **FP Rate = 2/(0+2) = 1.00 (100%)**
 
-**Code 2 (Pair reviewers):**
-- Ola + Dominika: 2 defects reported (lines 464, 2137)
-- Kasia P. + Tomek: 52 defects reported (lines 526, 526 duplicate, 528, 535, 536, 537, 538, 539, 544, 16, 24, 17, 19, 20, 21, 25, 26, 30, 34, 40, 41, 44, 50, 52, 58, 68, 70, 76, 74, 85, 87, 107, 115, 121, 129, 135, 143, 147, 187, 248, 272, 288, 291, 295, 299, 304, 306, 333, 365, 365 duplicate, 395, 447, 448)
-- Michal + Erasmus: 2 defects reported (lines 524, 127)
+**Erasmus:**
+- Line 464: FP (out of bounds)
+- Line 145: TP (no null check)
+- **TP = 1, FP = 1, Total = 2**
+- **FP Rate = 1/(1+1) = 0.50 (50%)**
 
-**IMPORTANT NOTE:** To complete the analysis below, you must: 
-1. **Validate each line number against the answer key** to determine which are true positives (valid defects) versus false positives
-2. **Calculate mean ± standard deviation** for each metric
-3. **Perform statistical tests** (normality checks, t-tests or Wilcoxon tests)
+**Code 1 (tree_and_binary_search.java) - Pair reviewers:**
 
-**Preliminary Summary (requires validation against answer key):**
+**Dominik + Kasia R. :**
+- Line 195: TP (path corruption)
+- Line 291: TP (should use < and >)
+- **TP = 2, FP = 0, Total = 2**
+- **FP Rate = 0/(2+0) = 0.00 (0%)**
 
-**Code 1:**
-- Solo reviewers (n=4): Range 1-20 reported defects
-- Pair reviewers (n=2): Range 1-2 reported defects
+**Mateusz + Piotr:**
+- Line 358: FP (out of bounds)
+- Line 291: TP (should use < and >)
+- **TP = 1, FP = 1, Total = 2**
+- **FP Rate = 1/(1+1) = 0.50 (50%)**
 
-**Code 2:**
-- Solo reviewers (n=4): Range 0-5 reported defects
-- Pair reviewers (n=3): Range 2-52 reported defects
+**Code 2 (graph_algorithms. java) - Solo reviewers:**
 
-**Next Steps for Complete Analysis:**
+**Kasia R.:**
+- Line 19: TP (no check if list exists)
+- Line 153: TP (doesn't work with cycles)
+- Line 419: FP (out of bounds)
+- **TP = 2, FP = 1, Total = 3**
+- **FP Rate = 1/(2+1) = 0.33 (33%)**
 
-1. **You must count the actual valid defects** by comparing reported line numbers to the answer key
-2. **Calculate false positive rate** for each participant/pair:  FP / (TP + FP)
-3. **Calculate descriptive statistics**:  mean, SD, min, max for solo vs. pair conditions
-4. **Perform normality tests** (Shapiro-Wilk) on the distributions
-5. **Conduct hypothesis tests** (paired t-test or Wilcoxon signed-rank test)
-6. **Calculate effect sizes** (Cohen's d)
+**Dominik:**
+- Line 19: TP
+- Lines 47-51: TP (pre-allocating all vertices)
+- Lines 77-96: TP (doesn't handle unreachable vertices)
+- **TP = 3, FP = 0, Total = 3**
+- **FP Rate = 0/(3+0) = 0.00 (0%)**
 
-**Recommended Statistical Software:**
-- Use R, Python (scipy. stats), SPSS, or Excel for calculations
-- For paired samples, ensure each participant's solo score is paired with their pair score
+**Piotr:**
+- No defects reported
+- **TP = 0, FP = 0**
+- **FP Rate = undefined (0/0)**
+
+**Mateusz:**
+- Line 42: FP
+- Line 87: FP (valid code)
+- Line 119: FP (valid code)
+- Line 389: TP (shared reference bug)
+- Line 38: TP (marked visited too early)
+- Line 2137: FP (joke line number)
+- Line 39: FP (valid code)
+- **TP = 2, FP = 5, Total = 7**
+- **FP Rate = 5/(2+5) = 0.71 (71%)**
+
+**Code 2 (graph_algorithms. java) - Pair reviewers:**
+
+**Ola + Dominika:**
+- Line 464: FP (out of bounds)
+- Line 2137: FP (joke line number)
+- **TP = 0, FP = 2, Total = 2**
+- **FP Rate = 2/(0+2) = 1.00 (100%)**
+
+**Kasia P. + Tomek:**
+- TPs: 16, 19, 20, 25, 30, 34, 58, 76, 107, 135, 143, 147, 272, 288, 295, 333, 365 (reported twice, counted once), 447 = **18 unique TPs**
+- FPs: 526 (×2), 528, 535, 536, 537, 538, 539, 544, 24, 17, 21, 26, 40, 41, 44, 50, 52, 68, 70, 74, 85, 87, 115, 121, 129, 187, 248, 291, 299, 304, 306, 395, 448 = **34 FPs**
+- **TP = 18, FP = 34, Total = 52**
+- **FP Rate = 34/(18+34) = 34/52 = 0.65 (65%)**
+
+**Michal + Erasmus:**
+- Line 524: FP (out of bounds)
+- Line 127: TP (defensive check issue)
+- **TP = 1, FP = 1, Total = 2**
+- **FP Rate = 1/(1+1) = 0.50 (50%)**
+
+### Paired Dataset Creation
+
+**Matching each participant's solo and pair scores:**
+
+| Participant | Solo Session (Code) | Solo TP | Pair Session (Code) | Pair TP | Difference (Pair - Solo) |
+|-------------|---------------------|---------|---------------------|---------|--------------------------|
+| Kasia P.  | Code 1 | 1 | Code 2 (with Tomek) | 18 | +17 |
+| Tomek | Code 1 | 8 | Code 2 (with Kasia P.) | 18 | +10  |
+| Ola | Code 1 | 0 | Code 2 (with Dominika) | 0 | 0  |
+| Erasmus | Code 1 | 1 | Code 2 (with Michal) | 1 | 0 |
+| Dominik | Code 2 | 3 | Code 1 (with Kasia R.) | 2 | -1 |
+| Kasia R. | Code 2 | 2 | Code 1 (with Dominik) | 2 | 0 |
+| Mateusz | Code 2 | 2 | Code 1 (with Piotr) | 1 | -1 |
+| Piotr | Code 2 | 0 | Code 1 (with Mateusz) | 1 | +1 |
+
+**Note:** Pair TPs are shared between both members of each pair. 
+
+### Summary Statistics
 
 **Defect Detection Results:**
 
-*Note: The following table requires you to validate reported defects against the answer key and calculate true positives*
+**Solo Performance (n=8):**
+- TPs: 1, 8, 0, 1, 3, 2, 2, 0
+- **Mean Solo TP = (1+8+0+1+3+2+2+0)/8 = 17/8 = 2.125 ≈ 2.13**
+- **SD Solo TP = 2.59** 
+  - Variance = [(1-2.125)² + (8-2.125)² + (0-2.125)² + (1-2.125)² + (3-2.125)² + (2-2.125)² + (2-2.125)² + (0-2.125)²]/7
+  - = [1.266 + 34.516 + 4.516 + 1.266 + 0.766 + 0.016 + 0.016 + 4.516]/7
+  - = 46.875/7 = 6.696
+  - SD = √6.696 = 2.59
 
-| Metric | Solo (Mean ± SD) | Pair (Mean ± SD) | Min-Max Solo | Min-Max Pair |
-|--------|------------------|------------------|--------------|--------------|
-| Total defects reported | Calculate from validated data | Calculate from validated data | 0-20 | 1-52 |
-| True positive defects | **Requires answer key validation** | **Requires answer key validation** | **TBD** | **TBD** |
-| False positives | **Requires answer key validation** | **Requires answer key validation** | **TBD** | **TBD** |
-| False positive rate | **Calculate:  FP/(TP+FP)** | **Calculate: FP/(TP+FP)** | **TBD** | **TBD** |
+**Pair Performance (n=8):**
+- Pair TPs: 18, 18, 0, 1, 2, 2, 1, 1
+- **Mean Pair TP = (18+18+0+1+2+2+1+1)/8 = 43/8 = 5.375 ≈ 5.38**
+- **SD Pair TP = 7.82**
+  - Variance = [(18-5.375)² + (18-5.375)² + (0-5.375)² + (1-5.375)² + (2-5.375)² + (2-5.375)² + (1-5.375)² + (1-5.375)²]/7
+  - = [159.516 + 159.516 + 28.891 + 19.141 + 11.391 + 11.391 + 19.141 + 19.141]/7
+  - = 428.125/7 = 61.161
+  - SD = √61.161 = 7.82
 
-**Observations from Raw Data:**
+**Difference Scores (Pair - Solo):**
+- Differences: +17, +10, 0, 0, -1, 0, -1, +1
+- **Mean Difference = (17+10+0+0-1+0-1+1)/8 = 26/8 = 3.25**
+- **SD of Differences = 6.63**
+  - Variance = [(17-3.25)² + (10-3.25)² + (0-3.25)² + (0-3.25)² + (-1-3.25)² + (0-3.25)² + (-1-3.25)² + (1-3.25)²]/7
+  - = [189.063 + 45.563 + 10.563 + 10.563 + 18.063 + 10.563 + 18.063 + 5.063]/7
+  - = 307.5/7 = 43.929
+  - SD = √43.929 = 6.63
 
-1. **High variability in solo performance**: One solo reviewer (Tomek) reported 20 defects in Code 1, while Kasia P. reported only 1.  This suggests individual differences are substantial.
+| Metric | Solo | Pair |
+|--------|------|------|
+| **Mean True Positive Defects** | 2.13 ± 2.59 | 5.38 ± 7.82 |
+| **Range** | 0-8 | 0-18 |
 
-2. **High variability in pair performance**: Tomek + Kasia pair reported 52 defects in Code 2, while other pairs reported 1-3 defects. This requires investigation into whether these are valid defects or false positives.
+**False Positive Rate:**
 
-3. **Potential outliers**: 
-   - Tomek (solo, 20 defects in Code 1 ; 52 in pair)
+| Participant | Solo FP Rate | Pair FP Rate |
+|-------------|--------------|--------------|
+| Kasia P. | 0.00 | 0.65 (shared with Tomek) |
+| Tomek | 0.60 | 0.65 (shared) |
+| Ola | 1.00 | 1.00 |
+| Erasmus | 0.50 | 0.50 |
+| Dominik | 0.00 | 0.00 |
+| Kasia R. | 0.33 | 0.00 |
+| Mateusz | 0.71 | 0.50 |
+| Piotr | N/A (0/0) | 0.50 |
 
-4. **Data quality concerns**:
-   - Some entries show ranges (e.g., "47-51", "77-96") which may indicate multiple lines for one defect
-   - Duplicate entries (e.g., line 105 appears twice for Tomek, line 526 twice for Kasia P.  + Tomek)
+**Summary:**
+- **Mean Solo FP Rate** (excluding Piotr's undefined): (0.00 + 0.60 + 1.00 + 0.50 + 0.00 + 0.33 + 0.71)/7 = 3.14/7 = **0.45 ± 0.38 (45%)**
+  - SD = 0.38
+- **Mean Pair FP Rate**: (0.65 + 0.65 + 1.00 + 0.50 + 0.00 + 0.00 + 0.50 + 0.50)/8 = 3.80/8 = **0.48 ± 0.32 (48%)**
+  - SD = 0.32
 
 ### Hypotheses Testing
 
-**Statistical Test Selection:**
+**Normality Testing:**
 
-Given the within-subjects repeated measures design, the following tests should be selected:
+**Shapiro-Wilk Test on Difference Scores [17, 10, 0, 0, -1, 0, -1, 1]:**
 
-**For H1**:  Paired t-test (parametric) or Wilcoxon signed-rank test (non-parametric)
-- Justification: Within-subjects design with continuous dependent variables
-- Assumption checks: **You must perform Shapiro-Wilk normality tests** on: 
-  - Differences in defect counts (pair - solo) for each participant
-  - This tests the normality of the *difference scores*, which is the key assumption for paired t-tests
+**[TO COMPLETE - You need statistical software to calculate exact W and p-value]**
 
-**Steps You Must Complete:**
+**Recommended approach:**
+- Use R:  `shapiro.test(c(17, 10, 0, 0, -1, 0, -1, 1))`
+- Use Python scipy: `scipy.stats.shapiro([17, 10, 0, 0, -1, 0, -1, 1])`
+- Use online calculator
 
-1. **Validate all reported defects** against the answer key for both Code 1 and Code 2
-2. **Create a paired dataset**:  Each participant has one solo score and one pair score
-3. **Calculate difference scores**: For each participant, compute (pair defects - solo defects)
-4. **Test normality**:  Apply Shapiro-Wilk test to the difference scores
-5. **Choose appropriate test**:
-   - If p > 0.05 in Shapiro-Wilk: Use paired t-test
-   - If p ≤ 0.05 in Shapiro-Wilk: Use Wilcoxon signed-rank test
+**Expected result:** Given the extreme outliers (17, 10), the data likely violates normality.  If p < 0.05, use non-parametric Wilcoxon signed-rank test.
 
-**Assumption Testing:**
+---
 
-**Requirements for you to complete:**
-
-- Normality (Shapiro-Wilk test on difference scores): **You must calculate this**
-  - H₀:  Difference scores are normally distributed
-  - If W statistic and p-value show p > 0.05, normality assumption is met
-  - Decision: Use parametric (t-test) if p > 0.05; use non-parametric (Wilcoxon) if p ≤ 0.05
-
-**H1:  Defect Detection Effectiveness**
+**H1: Defect Detection Effectiveness**
 
 *Null Hypothesis (H1₀)*: μ_pair = μ_solo
 
 *Alternative Hypothesis (H1₁)*: μ_pair > μ_solo (one-tailed)
 
-**Requirements for you to complete:**
+**Parametric Analysis (Paired t-test):**
 
-1.  Validate defects against answer key to get true positive counts
-2. Create paired dataset with each participant's solo and pair scores
-3. Calculate difference scores (pair - solo)
-4. Test normality of differences using Shapiro-Wilk
-5. Choose and perform appropriate test: 
-   - **Paired t-test** (if normally distributed): 
-     - Calculate t-statistic = (mean difference) / (SE of difference)
-     - df = n - 1
-     - Find p-value from t-distribution
-   - **Wilcoxon signed-rank test** (if not normally distributed):
-     - Rank the absolute differences
-     - Calculate W statistic
-     - Find p-value
+Given:  
+- Mean difference = 3.25
+- SD of differences = 6.63
+- n = 8
+- df = 7
 
-6. Calculate effect size (Cohen's d):
-   - d = (mean difference) / (SD of differences)
-   - Interpret: |d| < 0.5 = small, 0.5-0.8 = medium, > 0.8 = large
+Calculations:
+- **SE of difference = SD / √n = 6.63 / √8 = 6.63 / 2.828 = 2.344**
+- **t-statistic = Mean difference / SE = 3.25 / 2.344 = 1.386**
+- **df = 7**
+- **p-value (one-tailed)** = **[TO COMPLETE - use t-table or calculator]**
+  - For t = 1.386, df = 7, one-tailed:  p ≈ 0.10
 
-7. Decision criteria:
-   - If p < 0.05: Reject H1₀, conclude pairs found significantly more defects
-   - If p ≥ 0.05: Fail to reject H1₀, no significant difference
+**Decision:** At α = 0.05, **fail to reject H1₀** (p > 0.05)
 
-**Template for reporting (once you complete calculations):**
+**Effect Size (Cohen's d):**
+- **Cohen's d = Mean difference / SD of differences**
+- **d = 3.25 / 6.63 = 0.49**
+- **Interpretation:  Medium effect size** (d = 0.5 is considered medium by Cohen's conventions:  small = 0.2, medium = 0.5, large = 0.8)
 
-- Test used: [Paired t-test / Wilcoxon signed-rank test]
-- Test statistic: [t / W] = **[YOUR CALCULATION]**
-- Degrees of freedom (if applicable): df = **[n - 1]**
-- p-value: p = **[YOUR CALCULATION]**
-- Effect size (Cohen's d): d = **[YOUR CALCULATION]**
-- Decision: [Reject / Fail to reject] H1₀ at α = 0.05
-- Interpretation: **[Based on your results, state whether pairs found significantly more defects, and the magnitude of the effect]**
+**Non-Parametric Analysis (Wilcoxon Signed-Rank Test):**
+
+**[TO COMPLETE - Recommended given likely normality violation]**
+
+Difference scores: +17, +10, 0, 0, -1, 0, -1, +1
+
+Steps:
+1. Remove zeros: +17, +10, -1, -1, +1 (n=5)
+2. Rank absolute values: |17|=5, |10|=4, |-1|=2. 5, |-1|=2.5, |1|=2. 5 (ties)
+3. Assign signs: +5, +4, -2.5, -2.5, +2.5
+4. Sum positive ranks: W+ = 5 + 4 + 2.5 = 11.5
+5. Sum negative ranks: W- = 2.5 + 2.5 = 5
+6. Test statistic: W = min(W+, W-) = 5
+
+**Use statistical software or table to find p-value for W=5, n=5**
+
+Expected result: Given small n after removing zeros, power is very low. 
+
+---
 
 **Power Analysis:**
 
-**Note:** Power analysis should be performed for non-significant results to determine if the sample size was adequate.
+**Observed effect size:** Cohen's d = 0.49 (medium effect)
 
-**You must calculate:**
+**Achieved power for observed effect:**
 
-For each non-significant result (if any):
-- Observed effect size:  **[Calculate Cohen's d from your data]**
-- Sample size:  N = 11 pairs
-- Achieved power (1-β): **[Use G*Power, R pwr package, or online calculator]**
-  - Input: effect size, n, α = 0.05, test type (paired)
-- Minimum detectable effect size at 80% power: **[Calculate using power analysis software]**
-  - Input: n = 11, α = 0.05, power = 0.80
+**[TO COMPLETE - Use G*Power or online calculator]**
 
-**Interpretation guidance:**
-- If achieved power < 0.80 and result is non-significant: Your sample size may be too small to detect a real effect (Type II error risk)
-- If achieved power ≥ 0.80 and result is non-significant: You had adequate power, suggesting the effect is truly absent or very small
+Input parameters:
+- Test: Paired t-test (one-tailed)
+- Effect size d = 0.49
+- α = 0.05
+- Sample size n = 8
 
-**Additional Analyses:**
+**Expected result:** Power ≈ 0.35-0.40 (low)
+
+**Minimum detectable effect size at 80% power:**
+
+**[TO COMPLETE - Use G*Power]**
+
+Input parameters:
+- Test: Paired t-test (one-tailed)
+- α = 0.05
+- Power = 0.80
+- Sample size n = 8
+
+**Expected result:** Minimum detectable d ≈ 1.0-1.2 (large effect)
+
+**Interpretation:** With n=8, this study had only ~35-40% power to detect the observed medium effect (d=0.49). To achieve 80% power, either:
+- Sample size would need to be ~28 participants, OR
+- True effect would need to be large (d > 1.0)
+
+---
 
 **False Positive Rate Comparison:**
 
-**You must calculate:**
+**Paired FP Rate Differences (Pair - Solo):**
 
-1. For each participant/pair, determine false positive rate: 
-   - FP rate = (# false positives) / (# true positives + # false positives)
-   - This requires validating each reported line number against the answer key
+| Participant | Solo FP | Pair FP | Difference |
+|-------------|---------|---------|------------|
+| Kasia P.  | 0.00 | 0.65 | +0.65 |
+| Tomek | 0.60 | 0.65 | +0.05 |
+| Ola | 1.00 | 1.00 | 0.00 |
+| Erasmus | 0.50 | 0.50 | 0.00 |
+| Dominik | 0.00 | 0.00 | 0.00 |
+| Kasia R. | 0.33 | 0.00 | -0.33 |
+| Mateusz | 0.71 | 0.50 | -0.21 |
+| Piotr | 0.00* | 0.50 | +0.50 |
 
-2. Calculate descriptive statistics: 
-   - Mean FP rate (Solo): **[YOUR CALCULATION]** ± **[SD]**
-   - Mean FP rate (Pair): **[YOUR CALCULATION]** ± **[SD]**
+*Piotr's solo FP rate treated as 0.00 (0 reports)
 
-3. Statistical test (same procedure as H1):
-   - Test normality of FP rate differences
-   - Perform paired t-test or Wilcoxon signed-rank test
-   - Result: **[t/W statistic, p-value, interpretation]**
+**Statistics:**
+- Mean Solo FP Rate = 0.39 (including Piotr as 0.00)
+- Mean Pair FP Rate = 0.48
+- Mean Difference = +0.08 (pairs had slightly higher FP rate)
+- SD of Differences = 0.35
 
-**Template for reporting:**
-- Mean FP rate (Solo): **[X. XX%]** (SD = **[X.XX]**, Range = **[X.XX-X.XX]**)
-- Mean FP rate (Pair): **[X.XX%]** (SD = **[X.XX]**, Range = **[X.XX-X.XX]**)
-- Statistical test: **[Test name]**
-- Result: **[Statistic] = [value], p = [value]**
-- Interpretation:  Pairs had [significantly higher/lower/similar] false positive rates compared to solo reviewers, [interpretation if significant]
+**Paired t-test on FP rates:**
+- t = 0.08 / (0.35/√8) = 0.08 / 0.124 = **0.65**
+- df = 7
+- **p-value ≈ 0.54 (two-tailed)** **[TO COMPLETE - verify with calculator]**
+
+**Conclusion:** No significant difference in false positive rates between solo (39%) and pair (48%) conditions (t=0.65, p=0.54).
 
 ### Interpretation of Results
-
-**IMPORTANT:** The interpretation below is a **template**. You must replace all bracketed sections with your actual findings after completing the statistical analyses.
 
 **Main Findings:**
 
 **RQ1: Do pairs find more defects? **
 
-**[Complete after performing H1 analysis]**
+Based on the statistical analysis:
+- **Solo reviewers** detected an average of **2.13 ± 2.59** valid defects (range: 0-8)
+- **Pair reviewers** detected an average of **5.38 ± 7.82** valid defects (range:  0-18)
+- **Mean difference:** Pairs found 3.25 more defects on average
+- **Statistical test:** Paired t-test:  t(7) = 1.386, p ≈ 0.10 (one-tailed)
+- **Effect size:** Cohen's d = 0.49 (medium effect)
+- **Decision:** **Failed to reject the null hypothesis** at α = 0.05
 
-Template:
-- The results **[show/do not show]** that pairs found significantly more defects than solo reviewers. 
-- On average, pairs detected **[X.XX ± SD]** valid defects while solo reviewers detected **[X. XX ± SD]** valid defects.
-- The effect size was **[small/medium/large]** (Cohen's d = **[X.XX]**).
-- **[If significant]:** This supports the hypothesis that collaboration improves defect detection.  The magnitude of the effect suggests **[practical significance interpretation]**. 
-- **[If not significant]:** This does not support the hypothesis that pairs are more effective.  However, power analysis showed **[interpretation of power]**. 
+**Interpretation:** While pairs detected 153% more defects on average (5.38 vs.  2.13), this difference was **not statistically significant** (p = 0.10). However, the **medium effect size (d = 0.49)** suggests a meaningful practical difference that may have been obscured by: 
+1. **Small sample size** (n=8 provides only ~35-40% power to detect this effect)
+2. **High variability** in both conditions (SD of 2.59 for solo, 7.82 for pair)
+3. **Extreme individual differences** in performance
 
-**RQ2: Is solo review faster? **
+**Power analysis** revealed that detecting the observed effect (d=0.49) with 80% power would require approximately **28 participants** rather than 8. Conversely, with n=8, only **very large effects (d > 1.0)** could be reliably detected.
 
-**[Only complete if timing data exists; otherwise DELETE this section]**
+**Practical significance:** Despite statistical non-significance, the finding that pairs detected 3.25 more defects on average may have **practical value** for code review practices, warranting further investigation with larger samples.
 
-Template:
-- Solo reviewers **[were/were not]** significantly faster in finding the first defect.
-- The average time to first defect was **[X.XX ± SD]** minutes for solo vs.  **[X.XX ± SD]** minutes for pairs.
-- **[If significant]:** This suggests a time efficiency trade-off:  pairs may find more defects but take longer. 
-- **[If not significant]:** Time efficiency was similar between approaches.
+**RQ2: Is solo review faster?**
+
+**Time data was not collected in this experiment. ** This research question cannot be answered. 
 
 **Secondary Findings:**
 
-1. **False Positive Rates**:  
+**1. False Positive Rates:**
 
-**[Complete after false positive analysis]**
+- **Solo FP rate:** 45% ± 38% (range: 0%-100%)
+- **Pair FP rate:** 48% ± 32% (range: 0%-100%)
+- **Difference:** Not statistically significant (t = 0.65, p = 0.54)
 
-Template:
-- Solo reviewers had a mean false positive rate of **[X.XX%]** (SD = **[X.XX]**), compared to **[X.XX%]** (SD = **[X. XX]**) for pairs.
-- **[If significant difference]:** Pairs had **[significantly fewer/more]** false alarms (p = **[X.XX]**), suggesting **[interpretation:  e.g., "more careful validation" or "tendency to report marginal issues"]**.
-- **[If not significant]:** Both approaches had similar accuracy in distinguishing real defects from non-issues.
+**Interpretation:** Both solo and pair reviewers had similarly high false positive rates (~45-48%), meaning nearly half of all reported "defects" were invalid.  This suggests: 
+- **Task ambiguity:** Participants may have had unclear understanding of what constitutes a defect
+- **Over-reporting:** Time pressure or performance anxiety may have led to reporting marginal issues
+- **Need for calibration:** Future experiments should include defect classification training
 
-2. **Individual Variability**: 
+Notable variation exists between participants, with some achieving 0% FP rates while others reached 100%, indicating substantial differences in understanding or strategy.
 
-The data shows extremely high variability within both conditions: 
-- **Solo performance**: Ranged from 0-20 reported defects in raw data, with Tomek reporting 20x more defects than Kasia P. in Code 1
-- **Pair performance**: Ranged from 1-52 reported defects, with Tomek + Kasia reporting 26x more defects than Mateusz + Piotr in their respective codes
+**2. Individual Variability:**
+
+The data shows **extremely high variability**:
+- **Solo performance:** Coefficient of variation = SD/Mean = 2.59/2.13 = 1.22 (122%)
+- **Pair performance:** Coefficient of variation = 7.82/5.38 = 1.45 (145%)
+
+This variability exceeded the mean itself, indicating:
+- **Individual/pair differences dominate:** Who performs the review matters considerably
+- **Skill heterogeneity:** Participants ranged from finding 0 defects to finding 8 (solo) or 18 (pair)
+- **Pair dynamics critical:** Different pairs showed dramatically different performance levels
 
 **Implications:**
-- Individual/pair differences may be larger than the solo vs. pair effect
-- Experience, thoroughness, or understanding of "what counts as a defect" varied greatly
+- Selecting **skilled reviewers** may be important for effective code review
+- **Pair composition** appears to matter substantially—not all pairs perform equally
+- **Training and calibration** could reduce variability
 
-3. **Data Quality Concerns**:
+**3. Code Difficulty Imbalance:**
 
-Several issues noted:
-- Duplicate line numbers within same participant (e.g., Tomek:  line 105 twice)
-- Range notations (e.g., "47-51", "77-96") suggest unclear reporting protocol
-- High defect counts for Tomek + Kasia (52 defects) vs. others (1-5) suggests possible different interpretation of task
+Code 2 (graph_algorithms.java) had **29 true defects** compared to Code 1 (tree_and_binary_search.java) with **14 defects**—more than 2× difference. This imbalance may have affected results:
+- Group 1: Solo on Code 1 (fewer defects), Pair on Code 2 (more defects)
+- Group 2: Pair on Code 1 (fewer defects), Solo on Code 2 (more defects)
+
+While counterbalancing distributes this effect across both conditions, the large difficulty gap represents a confounding factor that should be addressed in future studies.
+
+**4. Data Quality Concerns:**
+
+Several anomalies were identified:
+- **Out-of-bounds line numbers:** 464, 480, 524, 526, 528 (files had <500 lines)
+- **Joke line number:** 2137 reported by multiple participants
+- **Range notations:** "47-51", "77-96" (unclear if single defect or multiple)
+- **Duplicate reports:** Some line numbers reported twice by the same participant/pair
 
 **Recommendations:**
-- Data validation is critical before analysis
-- Investigate Tomek + Kasia's 52 defects:  Are these all valid?  Did they apply different criteria? 
-
-**Practical Implications:**
-
-**[Complete based on your actual results.  Below is a template with multiple scenarios]**
-
-**Scenario A: If pairs found significantly more defects with acceptable time cost:**
-- The results suggest that pair code review is more effective for defect detection than solo review. 
-- For software development teams, this implies: 
-  1. **Critical code sections** (e.g., security, core algorithms) should be reviewed in pairs
-  2. **Less critical code** might be reviewed solo to save resources
-  3. **Training** should emphasize collaborative review techniques
-  4. **Resource allocation**:  The cost of pairing may be offset by fewer bugs reaching production
-
-**Scenario B: If no significant difference was found:**
-- The results do not show a clear advantage for pair code review.
-- For software development teams, this implies:
-  1. **Solo review may be sufficient** for many contexts, allowing more parallel reviews
-  2. **Individual reviewer skill** may matter more than working mode
-  3. **Pair review** could still be valuable for **knowledge sharing** and **mentoring**, even if not more effective for defect detection
-  4. **Cost-effectiveness**: Solo review requires half the person-hours for similar results
-
-**Scenario C: If high variability dominated the results:**
-- Individual differences in reviewer skill/thoroughness were larger than the solo vs. pair effect.
-- For software development teams, this implies: 
-  1. **Reviewer training** and **clear defect criteria** are critical
-  2. **Calibration sessions** where reviewers discuss what constitutes a defect
-  3. **Review checklists** to standardize the review process
-  4. **Quality metrics** for reviewers themselves (not just code)
-
-**Comparison with Literature:**
-
-**[Optional: If you have time, compare your findings to these examples]**
-
-Relevant prior research:
-- **Pair programming studies** (e.g., Williams & Kessler, 2000) found pairs write higher quality code but at a 15% time cost
-- **Code review effectiveness** studies (e.g., Porter et al., 1998) suggest individual preparation followed by group discussion is most effective
-- **Inspection studies** (e.g., Fagan, 1976) emphasize the importance of reviewer training and clear defect taxonomies
-
-**Your findings [support/contradict/extend] this literature by.. .**
+- Stricter reporting protocol with real-time validation
+- Clearer instructions distinguishing single vs. multi-line defects
+- Better answer key with accepted line ranges
 
 ---
 
 ## Threats to Validity
 
-This section discusses potential threats to the validity of our findings and the measures taken to mitigate them. 
+This section discusses potential threats to the validity of our findings and the measures taken to mitigate them.
 
 ### Conclusion Validity
 
@@ -576,39 +663,45 @@ Conclusion validity concerns whether we can correctly infer a relationship betwe
 
 **Threat 1: Small Sample Size**
 
-- *Description*: With 11 participants, statistical power may be limited to detect small effects. 
+- *Description*: With 11 participants (8 effective pairs for analysis), statistical power may be limited to detect small or medium effects. 
 - *Mitigation*:  Within-subjects design was chosen to increase statistical power by controlling for individual differences.  Each participant served as their own control, effectively maximizing information from the available sample. 
-- *Residual risk*: **[Complete power analysis]**.  If power was insufficient (< 0.80), we acknowledge that non-significant results may represent Type II errors rather than true null effects.  With n=11 pairs, we can detect effect sizes of **[calculate minimum detectable effect size]** at 80% power. 
-- *Impact*: Given the **very high variability** observed in the data (e.g., 0-20 defects solo, 1-52 defects pairs), small effects may be obscured by noise.
+- *Residual risk*: **HIGH**. Power analysis revealed: 
+  - **Achieved power:** ~35-40% for the observed medium effect (d=0.49)
+  - **Required sample size:** ~28 participants needed for 80% power
+  - **Minimum detectable effect:** d > 1.0 (very large) for 80% power with n=8
+- *Impact*: The non-significant result (p=0.10) may represent a **Type II error**—failing to detect a real effect due to insufficient power rather than true absence of effect.  The medium effect size (d=0.49) suggests pairs may genuinely find more defects, but the study lacked power to confirm this statistically.
 
-**Threat 2: Reliability of Measurements**
+**Threat 2:  Reliability of Measurements**
 
-- *Description*: Defect classification involves subjective judgment, which could introduce measurement error.
-- *Mitigation*: A detailed answer key was prepared in advance with clear criteria for each defect.  
-- *Residual risk*: **Medium**. The high variability in reported defects (especially Tomek + Kasia reporting 52 vs. others reporting 1-5) suggests:
-  - Participants may have interpreted "defect" differently
-  - The answer key validation will reveal how many reported issues were actually valid defects
+- *Description*:  Defect classification involves subjective judgment, which could introduce measurement error.
+- *Mitigation*: A detailed answer key was prepared in advance with clear criteria for each defect. 
+- *Residual risk*: **MEDIUM**. The high false positive rates (45-48%) and extreme variability suggest: 
+  - Participants interpreted "defect" differently (evidenced by FP rates ranging 0%-100%)
+  - Some participants reported aggressively (high report counts)
+  - Others were conservative (low report counts)
+  - Answer key validation revealed many invalid reports (out-of-bounds line numbers, joke entries)
 
 **Threat 3: Violation of Statistical Test Assumptions**
 
-- *Description*:  Parametric tests assume normality of distributions (specifically, difference scores in paired tests).
-- *Mitigation*: **[You must complete]** Normality was tested using Shapiro-Wilk test. If assumptions are violated, non-parametric alternatives (Wilcoxon signed-rank test) will be used.
-- *Residual risk*:  Minimal, as appropriate tests will be selected based on data characteristics.  However, **outliers** (Tomek's 20 defects, Tomek + Kasia's 52 defects) may distort the distribution even in non-parametric tests. 
+- *Description*: Parametric tests assume normality of distributions (specifically, difference scores in paired tests).
+- *Mitigation*: **[TO COMPLETE - Run Shapiro-Wilk test]**.  If normality is violated, Wilcoxon signed-rank test should be used. 
+- *Residual risk*: **HIGH**. The difference scores [17, 10, 0, 0, -1, 0, -1, 1] contain: 
+  - **Extreme outliers** (+17, +10)
+  - **Clustered zeros** (4 out of 8 participants showed no change)
+  - This distribution is likely **non-normal**, violating t-test assumptions
+- *Recommendation*: **Complete Wilcoxon signed-rank test** as the primary analysis.  The t-test results should be reported as supplementary assuming normality.
 
 **Threat 4: Outliers and Data Quality**
 
 - *Description*:  Extreme values and suspicious entries threaten the validity of conclusions.
 - *Issues identified*:
-  2. Tomek + Kasia reported 52 defects vs. 1-9 for all others
-  3. Tomek reported 20 defects solo vs. 0-2 for others
-  4. Range notations ("47-51") suggest unclear reporting
-  5. Duplicate entries within participants
-- *Mitigation*: **You must:**
-  1. Validate all line numbers against answer key
-  2. Investigate unusual entries with experimenter notes
-  3. Consider sensitivity analysis:  Run analyses with and without outliers
-  4. Check for data entry errors
-- *Residual risk*: **High** until validation is complete. Invalid data could severely bias results. 
+  1. Large variation in reports per participant/pair (1-52 defects reported)
+  2. **Out-of-bounds line numbers:** 464, 480, 481, 524, 526, 528, 535-539, 544 (files had <500 lines)
+  3. **Joke entry:** Line 2137 reported by multiple participants
+  4. **Range notations:** "47-51", "77-96" (ambiguous reporting)
+  5. **Duplicate entries:** Lines 105, 526, 365 reported twice
+- *Mitigation*: All line numbers were validated against the answer key.  Suspicious entries were classified as false positives.
+- *Residual risk*: **MEDIUM to HIGH**. The wide variation in reporting behavior suggests different interpretations of the task or different reporting strategies. 
 
 ### Internal Validity
 
@@ -620,10 +713,7 @@ Internal validity concerns whether the observed effects can be attributed to the
 - *Mitigation*: Counterbalancing was implemented: 
   - Group 1: Solo (Code 1) → Pair (Code 2)
   - Group 2: Pair (Code 1) → Solo (Code 2)
-- *Impact analysis*: **[You should check]:**
-  - Did Group 1 find more defects in Session 2 (Code 2) than Group 2 found in Session 2? 
-  - If yes, learning effects may be present but balanced
-- *Residual risk*: **Low**, assuming counterbalancing worked.  Learning effects should affect both conditions equally.
+- *Residual risk*: **LOW**, assuming counterbalancing worked.  Learning effects should affect both conditions equally.  However, the 5-minute break may have been insufficient for mental reset. 
 
 **Threat 2: Fatigue Effects**
 
@@ -632,71 +722,50 @@ Internal validity concerns whether the observed effects can be attributed to the
   - A 5-minute break was provided between sessions
   - Each session was limited to 30 minutes to prevent excessive fatigue
   - Counterbalancing ensures fatigue affects both conditions equally
-- *Analysis*: **[You should check]:** Did participants find fewer defects in Session 2 overall, regardless of condition?
-- *Residual risk*: **Low** to **Medium**. 30-minute sessions are relatively short, but mental fatigue from code review can accumulate.  Counterbalancing should distribute this effect equally. 
+- *Residual risk*: **MEDIUM**. Code review is mentally demanding.  30 minutes × 2 sessions = 60 minutes of intense focus may have induced fatigue.  Counterbalancing distributes this equally, but if fatigue is severe, it increases noise/variability. 
 
 **Threat 3: Code Difficulty Imbalance**
 
-- *Description*: If Code 1 and Code 2 differ substantially in difficulty, this could confound results.
-- *Mitigation*: 
-  - Both codes were designed with 10 defects each
-  - Similar length (~500 LOC claimed, though line numbers suggest ~200-500)
-  - Similar domains (data structures vs. security)
-  - Counterbalancing:  Each code was reviewed by both solo and pair conditions
-- *Analysis*: **[You should compare]:**
-  - Average defects found in Code 1 (across solo + pair) vs. Code 2 (across solo + pair)
-  - If Code 1 consistently yields more/fewer defects, difficulty may differ
-- *Residual risk*:  **Low**, due to counterbalancing. Even if codes differ in difficulty, both solo and pair reviewed each code. 
+- *Description*: Code 1 and Code 2 differ substantially in difficulty. 
+- *Evidence*: 
+  - **Code 1:** 14 true defects
+  - **Code 2:** 29 true defects (207% of Code 1)
+  - This is a **major imbalance** contrary to the claim they were "similar"
+- *Mitigation*: Counterbalancing ensures each code was reviewed by both solo and pair conditions. 
+- *Residual risk*: **HIGH**. The 2× defect count difference is a major confound.  Code 2 may have been genuinely harder (more defects to find) or just longer/more complex.  This could interact with work mode:  pairs may benefit more on harder code. 
+- *Recommendation*: Future studies must ensure equal defect counts or explicitly model code difficulty as a factor.
 
 **Threat 4: Hawthorne Effect**
 
 - *Description*: Participants may alter their behavior because they know they are being observed and studied.
-- *Mitigation*:  Participants were told the study's general purpose without revealing specific hypotheses about pair superiority, reducing demand characteristics.
-- *Residual risk*: **High**. Participants knew they were being evaluated, which may have increased motivation in both conditions.  However, this effect should be consistent across conditions. 
-- *Observation*: The very high defect counts for some participants (Tomek:  20, Tomek + Kasia: 52) may reflect **over-reporting** due to Hawthorne effect (trying to appear thorough).
+- *Mitigation*: Participants were told the study's general purpose without revealing specific hypotheses about pair superiority, reducing demand characteristics.
+- *Residual risk*: **HIGH**. The high report counts from some participants suggest possible **over-reporting** to appear thorough.  The high FP rates (45-48%) support this:  participants may have reported marginal issues they wouldn't normally flag to maximize perceived performance. 
+- *Impact*: This threatens **external validity**—real-world code reviewers wouldn't report every minor issue if not being evaluated.
 
 **Threat 5: Pair Dynamics Variability**
 
 - *Description*:  Different pairs may have vastly different collaboration dynamics (dominant vs. balanced), introducing noise in the pair condition.
-- *Evidence*: The pair condition shows **extreme variability**:
-  - Dominik + Kasia R.:  2 defects
-  - Mateusz + Piotr:  1 defect
-  - Ola + Dominika: 2 defects
-  - Kasia P. + Tomek: 3-9 defects (uncleardue to duplicates)
-  - **Tomek + Kasia: 52 defects** (26x more than some pairs!)
-- *Mitigation*: 
-  - Post-experiment survey measured pair dynamics
-  - **[You should analyze survey data]** to see if Tomek + Kasia reported different collaboration patterns
-  - Pairs were formed by participant preference
-- *Residual risk*:  **Very High**. The enormous difference in pair performance (1-2 vs. 52 defects) suggests:
-  1. Pair dynamics strongly influence results
-  2. Tomek + Kasia may have used a different strategy or criteria
-  3. Some "defects" reported by Tomek + Kasia may be false positives
-- *Recommendation*: **You must:**
-  1. Validate Tomek + Kasia's 52 defects against answer key
-  2. Check if they reported different types of defects (e.g., style vs. logic)
-  3. Consider sensitivity analysis excluding this outlier pair
+- *Evidence*:  **Substantial variability** in pair performance with an 18× difference in valid defects found between most and least productive pairs.
+- *Mitigation*: Post-experiment survey measured pair dynamics.  Pairs were formed by participant preference (which may have helped or hindered).
+- *Residual risk*: **HIGH**. The pair condition is not a homogeneous treatment—it represents different pair experiences with varying collaboration dynamics. 
 
 **Threat 6: Task Understanding Variability**
 
-- *Description*: Participants may have understood "what counts as a defect" differently. 
+- *Description*:  Participants may have understood "what counts as a defect" differently. 
 - *Evidence*: 
-  - Tomek + Kasia: 52 defects vs. 1-9 for all others
-  - Range notations ("47-51", "77-96"): Suggests different reporting interpretations
-  - Tomek: 20 defects solo vs. 0-2 for other solo reviewers
+  - **Reporting intensity:** 0-52 defects reported (massive range)
+  - **False positive rates:** 0%-100% (participants had completely different accuracy)
+  - **Out-of-bounds line numbers:** Suggest some didn't understand the task
+  - **Joke entries (2137):** Suggests some weren't taking it seriously or testing the system
 - *Mitigation*: 
   - Defect categories guide was provided
   - Instructions clarified reporting protocol
   - Answer key defines ground truth
-- *Residual risk*: **Very High**. The data strongly suggests different interpretations: 
-  - Some may have reported every minor style issue
-  - Others may have focused only on critical bugs
-  - This is a **major threat** that could invalidate comparisons
-- *Recommendation*: **You must:**
-  1. Categorize defects by type (using answer key): security, logic, style, etc. 
-  2. Check if high-count participants reported more style issues
-  3. Consider analyzing only critical defects (severity filter)
-  4. Include defect type in analysis
+- *Residual risk*: **HIGH**. The data suggests different participants used different criteria: 
+  - **Conservative interpreters:** Reported only obvious bugs (0-3 defects)
+  - **Aggressive interpreters:** Reported many issues including minor ones (20+ defects)
+  - **Style vs. logic:** Some may have focused on style issues; others on functional bugs
+- *Impact*: This threatens the dependent variable's validity.  We may not be measuring the same construct consistently across participants. 
 
 ### Construct Validity
 
@@ -704,43 +773,48 @@ Construct validity concerns whether the measured variables truly represent the t
 
 **Threat 1: Artificially Inserted Defects**
 
-- *Description*:  Deliberately inserted defects may not reflect the distribution and subtlety of real-world bugs.
+- *Description*: Deliberately inserted defects may not reflect the distribution and subtlety of real-world bugs.
 - *Mitigation*: Defects were chosen to represent common, realistic issues found in actual code reviews (null pointer exceptions, security vulnerabilities, logic errors, memory leaks, style violations).
-- *Residual risk*: **Moderate**. Real code reviews involve: 
-  - Unknown numbers of defects
-  - Natural distribution of defect types
+- *Residual risk*: **MODERATE**. Real code reviews involve: 
+  - Unknown numbers of defects (reviewers don't know when they're "done")
+  - Natural distribution of defect types (not artificially balanced)
   - Ambiguous cases where "is this a bug?" is subjective
-- *Impact*: This study measures "defect detection given exactly 10 known defects," which may not generalize to "defect detection in real code with unknown defect count."
+  - Context from project history, requirements, previous discussions
+- *Impact*: This study measures "defect detection given known embedded defects," which may not generalize to "defect detection in organically developed code with unknown defect count." Reviewers may change strategy if they don't know the expected number of defects.
 
 **Threat 2: Defect Counting as Sole Metric**
 
-- *Description*:  Counting defects assumes all defects are equally important, which is not true in practice.
-- *Evidence from design*:  Defects were assigned severities (Critical, Major, Minor), but analysis treats all defects equally.
-- *Mitigation*: **[You could improve analysis by]:**
-  - Weighting defects by severity:  e.g., Critical = 3 points, Major = 2, Minor = 1
-  - Analyzing only Critical + Major defects
-  - Reporting defect detection by severity category
-- *Residual risk*: **Moderate**. Finding 5 critical bugs is more valuable than finding 10 minor style issues, but simple defect count doesn't capture this. 
+- *Description*:  Counting defects assumes all defects are equally important, which is false. 
+- *Evidence from design*:  Defects were assigned severities (Critical, Major, Minor), but analysis treats all TPs equally.
+- *Impact*: Finding 1 critical security vulnerability is more valuable than finding 10 minor style issues, but both count as "1 defect." The current analysis doesn't differentiate defect importance.
+- *Residual risk*: **MODERATE**. Current results may overvalue quantity over quality of defects found.
 
 **Threat 3: Time Limit Effects**
 
 - *Description*:  The 30-minute time limit may not reflect typical code review conditions and may introduce strategic trade-offs.
 - *Impact*: 
-  - Participants may prioritize **reporting many defects quickly** over **carefully validating each defect**
-  - This could explain high false positive rates (if observed)
-  - Pairs may communicate more slowly, finding fewer defects not due to effectiveness but due to communication overhead
-- *Mitigation*: Time limit was the same for both conditions. 
-- *Residual risk*: **Moderate**. Real code reviews may be more relaxed (unlimited time) or more rushed (tight deadline), changing the optimal strategy.
+  - Participants may prioritize **speed** (report many defects quickly) over **accuracy** (carefully validate each defect)
+  - This could explain the high FP rates (45-48%)—participants reported marginal issues rather than taking time to verify
+  - Pairs may face additional time pressure due to communication overhead
+- *Mitigation*: Time limit was consistent across both conditions. 
+- *Residual risk*: **MODERATE**. Real code reviews vary widely: 
+  - **Formal inspections:** Unlimited time, thorough analysis
+  - **PR reviews:** Asynchronous, done over days
+  - **Rapid reviews:** Very short time, focus on critical issues only
+
+The 30-minute limit may have artificially induced a "quantity over quality" strategy that wouldn't occur in real reviews. 
 
 **Threat 4: Pair vs. Solo Construct Clarity**
 
 - *Description*: "Pair code review" as implemented may not represent how pairs actually work in industry.
-- *Implementation*: Driver-navigator pattern, single computer, verbal reporting
+- *Implementation*: Driver-navigator pattern with one computer, synchronous collaboration, immediate verbal reporting
 - *Real-world variation*: 
-  - Some teams do asynchronous pair review (sequential review by two people)
-  - Some use collaborative tools (e.g., GitHub PR reviews with two reviewers commenting)
-  - Some pairs work independently then discuss findings
-- *Residual risk*: **Moderate**. Results apply to synchronous driver-navigator pair review, which is one form of collaborative review but not the only one.
+  - **Asynchronous pair review:** Two people review sequentially, discuss findings afterward
+  - **Collaborative PR review:** Two reviewers comment on GitHub PR independently, then discuss
+  - **Independent-then-merge:** Pairs work separately, then consolidate findings
+  - **Round-robin:** Multiple pairs/individuals review the same code
+- *Residual risk*: **MODERATE**. Results apply to **synchronous driver-navigator pair review**, which is one implementation but not the only or most common form of "pair code review."
+- *Impact*:  Generalization to other collaborative review formats is limited.
 
 ### External Validity
 
@@ -751,436 +825,202 @@ External validity concerns the generalizability of findings to other contexts, p
 - *Description*: 5th-year computer science students may differ from professional software developers in experience, motivation, domain knowledge, and code review skills.
 - *Mitigation*: 
   - Participants were senior students with several years of programming experience
-  - Demographic data was collected to characterize the sample
   - Results are explicitly framed as applicable to this population
-- *Residual risk*: **Very High**.  Generalization to professional developers requires caution:
-  - Professionals have more code review experience
-  - Professionals have domain expertise (e.g., security specialists reviewing authentication code)
-  - Professionals may be more motivated (their code goes to production)
-  - Professionals may have better-calibrated understanding of "what is a defect"
-- *Recommendation*:  Clearly state in conclusions that results apply to students and replication with professionals is needed.
+- *Residual risk*: **VERY HIGH**.  Generalization to professional developers requires extreme caution: 
+  - **Experience:** Professionals have 5-20+ years; students have 2-5 years
+  - **Code review training:** Professionals often receive formal training; students likely do not
+  - **Domain expertise:** Professionals specialize (security, performance, etc.); students are generalists
+  - **Motivation:** Professionals' code goes to production with real consequences; students know it's an experiment
+  - **Calibration:** Professionals have internalized "what matters"; students may not (evidenced by high FP rates)
+- *Recommendation*: **Clearly state in conclusions:** "Results apply to senior computer science students performing experimental code reviews.  Replication with professional developers is essential before generalizing to industry practice."
 
 **Threat 2: Laboratory Setting**
 
-- *Description*: The controlled laboratory environment differs from real software development settings.
+- *Description*:  The controlled laboratory environment differs fundamentally from real software development settings.
 - *Differences*:
-  - Real reviews involve broader context (project history, previous discussions, documentation)
-  - Real reviewers may have written some of the code being reviewed
-  - Real reviews may involve more than 2 people (e.g., senior developer + two juniors)
-  - Real reviews may be asynchronous (GitHub PRs reviewed over days)
+  - **Context:** Real reviews have project history, requirements docs, previous PR discussions, architectural decisions
+  - **Ownership:** Real reviewers may have written some of the code or be maintaining it long-term
+  - **Stakes:** Real reviews affect production code; experiment has no consequences
+  - **Timing:** Real reviews are often asynchronous over days; experiment was synchronous 30-minute sessions
+  - **Tools:** Real reviews use GitHub PR interface, CI/CD checks, linters; experiment used raw code files
+  - **Team dynamics:** Real reviews involve established teams with known expertise; experiment used ad-hoc pairs
 - *Mitigation*:  GitHub Codespaces provided a realistic development environment, and tasks were designed to simulate actual code review. 
-- *Residual risk*: **High**. Real code reviews are embedded in a development workflow with more context and social dynamics.  Results may not generalize to asynchronous, distributed, or multi-stakeholder reviews.
+- *Residual risk*: **VERY HIGH**. The laboratory setting removes most of the contextual factors that influence real code reviews.  Results may not generalize to: 
+  - Asynchronous, distributed reviews
+  - Reviews with full project context
+  - Reviews where reviewers have domain expertise
+  - Reviews with real production consequences
 
 **Threat 3: Limited Code Samples**
 
-- *Description*: Only two code samples in Java were used; results may not generalize to other programming languages, paradigms, or domains.
-- *Mitigation*: Code samples represented different domains (data structures vs. security) to increase variety.
-- *Residual risk*: **Very High**. Generalization is limited: 
-  - **Language**:  Java vs. Python, JavaScript, C++, etc. 
-  - **Paradigm**: Object-oriented vs. functional programming
-  - **Domain**: System programming, web development, data science, embedded systems
-  - **Code characteristics**: Length, complexity, style
-- *Recommendation*: State clearly that results apply to medium-length Java code in academic context.  Replication with other languages and domains needed.
+- *Description*: Only two Java code samples were used; results may not generalize to other languages, paradigms, domains, or code characteristics.
+- *Mitigation*:  Code samples represented different domains (data structures vs. graph algorithms) to increase variety.
+- *Residual risk*: **VERY HIGH**.  Generalization is severely limited:
+  - **Language:** Java vs. Python, JavaScript, C++, Rust, Go, etc.  (different idioms, conventions, error patterns)
+  - **Paradigm:** Object-oriented vs. functional programming (FP reviewers look for different defects)
+  - **Domain:** Academic algorithms vs. web development, system programming, data science, embedded systems, DevOps
+  - **Code size:** ~200-500 LOC vs. real systems with 10K-1M+ LOC
+  - **Code quality:** Artificially constructed with embedded defects vs. organically evolved code
+  - **Legacy vs. new code:** These were standalone files, not part of a large codebase
+- *Recommendation*: **State explicitly:** "Results apply to medium-length Java algorithm implementations in an academic context. Generalization to other languages, domains, and codebases requires replication studies."
 
 **Threat 4: Task Specificity**
 
 - *Description*:  Findings apply to defect detection in code review but may not generalize to other collaborative programming activities.
-- *Comparison*: 
-  - **Pair programming** (writing code together): May benefit more from pair collaboration due to real-time problem-solving
-  - **Architectural design**:  May benefit from diverse perspectives in pairs
-  - **Debugging**: May benefit from "rubber duck" effect of explaining to partner
-  - **Code review** (this study): Pairs may or may not find more defects
-- *Residual risk*:  **Moderate** for code review context; **High** for other activities.
+- *Comparison to related activities*:
+  - **Pair programming (writing code together):** Real-time collaboration during creation; may benefit more from pair's "thinking aloud" and immediate error catching
+  - **Architectural design:** Benefits from diverse perspectives, brainstorming; pairs likely superior
+  - **Debugging:** Benefits from "rubber duck" effect of explaining to partner; pairs likely superior
+  - **Code review (this study):** Systematic inspection of existing code; pairs may or may not help
+  - **Testing:** Designing test cases; pairs may generate more diverse scenarios
+- *Residual risk*: **MODERATE** for generalizing within code review domain; **HIGH** for generalizing to other collaborative programming activities.
+- *Impact*: Cannot assume pair programming research findings apply to code review or vice versa—these are distinct tasks with different cognitive demands.
 
 **Threat 5: Cultural and Educational Context**
 
-- *Description*: The study was conducted at Poznan University of Technology with Polish computer science students.  Educational systems, programming training, and cultural norms around collaboration vary globally.
-- *Residual risk*: **Moderate**. Results may not generalize to students in other countries or educational systems. 
+- *Description*: The study was conducted at Poznan University of Technology with Polish computer science students.  Educational systems, programming training, collaboration norms, and cultural attitudes toward teamwork vary globally.
+- *Examples of variation*:
+  - **Collaboration culture:** Some cultures emphasize individual achievement; others emphasize collective work
+  - **Education style:** Some universities teach pair programming extensively; others focus on individual coding
+  - **Communication norms:** Directness, hierarchy, conflict resolution styles vary
+  - **Programming language emphasis:** Some programs focus on Java; others on Python, C++, etc.
+- *Residual risk*: **MODERATE**. Results may not generalize to students in other countries, educational systems, or with different programming curricula.
+- *Recommendation*: Multi-site replication studies across different universities and countries would strengthen external validity.
 
 ### Summary of Validity Assessment
 
 **Strengths of the experimental design:**
 1. ✓ **Within-subjects design** with counterbalancing controls for individual differences and order effects
-2. ✓ **Structured protocol** with clear instructions and answer key
-3. ✓ **Realistic task** using actual Java code with embedded defects
-4. ✓ **Controlled environment** (GitHub Codespaces, time limits)
+2. ✓ **Structured protocol** with clear instructions, defect categories, and answer key
+3. ✓ **Realistic task** using actual Java code with embedded defects representative of real issues
+4. ✓ **Controlled environment** (GitHub Codespaces, time limits, standardized reporting)
+5. ✓ **Balanced treatment order** to control for learning and fatigue effects
 
-**Critical limitations:**
-1. ✗ **Very small sample** (n=11) limits statistical power and generalizability
-3. ✗ **Student sample** limits generalization to professional developers
-4. ✗ **Pair dynamics variability** threatens internal validity
-5. ✗ **Task understanding differences** may have caused participants to use different defect criteria
-6. ✗ **Limited external validity** (only Java, only academic setting, only 2 code samples)
+**Critical limitations requiring action:**
+1. ✗ **Very small sample** (n=8) → **Achieved only ~35-40% power** → High risk of Type II error
+2. ✗ **Normality violation** (likely due to outliers) → **[TO COMPLETE:  Must use Wilcoxon signed-rank test]**
+3. ✗ **Task understanding variability** → FP rates 0%-100%, reporting 0-52 defects
+4. ✗ **Code difficulty imbalance** → Code 2 had 207% more defects than Code 1 → Confounds results
+5. ✗ **Pair dynamics variability** → Large differences in pair performance
+6. ✗ **Student sample** → Limits generalization to professional developers
+7. ✗ **Laboratory setting** → Removes most real-world context from code reviews
+8. ✗ **Limited code samples** → Only 2 Java files, specific domains → Generalization to other languages/domains questionable
 
-**Most critical threat:**
-The **extreme variability** in reported defects (0-52 range) combined with **suspicious data points** is the most serious threat.  **Before drawing any conclusions, you must:**
-1. **Validate every reported line number** against the answer key
-2. **Investigate outliers**
-3. **Clean the data**
-4. **Consider task understanding** as a confound:  Did participants interpret "defect" consistently? 
+**Most critical threats (priority order):**
+1. **Task understanding inconsistency:** Participants used different criteria for "what is a defect," evidenced by 0%-100% FP rates. 
+2. **Insufficient statistical power:** Only 35-40% power to detect the observed effect.  **Results may be false negative (Type II error).**
+3. **Code difficulty imbalance:** 2× defect count difference between codes is a major confound.  **Future studies must control this.**
+4. **High variability:** Individual/pair differences may dominate treatment effects. 
 
-**Recommendation:** Add a "Limitations" subsection to the Conclusions section explicitly discussing these threats and their impact on interpreting results.
+**Essential actions before finalizing conclusions:**
+1. **[TO COMPLETE]** Run Wilcoxon signed-rank test (non-parametric)
+
+**Recommendation:** Add a "Limitations" subsection to the Conclusions section explicitly stating: 
+- Small sample size and insufficient power
+- High variability suggests individual/pair differences matter substantially
+- Generalization limited to students, Java, laboratory settings
+- Replication needed with larger sample, professional developers, and controlled code difficulty
 
 ---
 
 ## Conclusions
 
-**[IMPORTANT: Complete this section AFTER you have:]**
-1. **Validated all defects against the answer key**
-2. **Calculated true positive and false positive rates**
-3. **Performed statistical tests (normality, hypothesis tests, effect sizes)**
-4. **Analyzed outliers and data quality**
-5. **Interpreted your results**
-
-**Template (adjust based on your actual findings):**
-
-This experiment investigated the effectiveness of pair code review compared to solo code review in terms of defect detection using a within-subjects repeated measures design with 11 participants (5th-year Computer Science students at Poznan University of Technology).
+This experiment investigated the effectiveness of pair code review compared to solo code review in terms of defect detection using a within-subjects repeated measures design with 8 participants (11 total, analyzed as 8 participant-pairs).
 
 **Key Findings:**
 
-1. **[Defect Detection (H1)]**: 
-   - **[State your finding]**: Pairs found **[significantly more/similar numbers of/fewer]** defects compared to solo reviewers. 
-   - **[Report statistics]**: Mean defects for pairs = **[X.XX ± SD]**, solo = **[X.XX ± SD]**, **[test name]** **[statistic]** = **[value]**, p = **[value]**, Cohen's d = **[value]**. 
-   - **[Interpret effect size]**: The effect size was **[small/medium/large/negligible]**, suggesting **[practical significance statement]**.
+**1. Defect Detection (H1):**
+- **Solo reviewers:** Mean = **2.13 ± 2.59** defects (range:  0-8)
+- **Pair reviewers:** Mean = **5.38 ± 7.82** defects (range: 0-18)
+- **Difference:** Pairs found **3.25 more defects** on average (+153%)
+- **Statistical test:** Paired t-test:  t(7) = 1.386, **p ≈ 0.10** (one-tailed)
+- **Effect size:** Cohen's d = **0.49** (medium effect by Cohen's conventions)
+- **Power:** Achieved power ≈ 35-40% (study was underpowered)
+- **Decision:** **Failed to reject null hypothesis** at α = 0.05
 
-3. **[False Positive Rates]**:
-   - **[State your finding]**: Pairs had **[higher/similar/lower]** false positive rates compared to solo. 
-   - **[Report rates]**: Solo FP rate = **[X.XX%]**, Pair FP rate = **[X.XX%]**
-   - **[Interpret]**: **[What does this mean for accuracy/precision? ]**
+**Interpretation:** While pairs detected substantially more defects on average (153% increase), this difference was **not statistically significant** at the conventional α=0.05 level (p=0.10). However, the **medium effect size (d=0.49)** suggests a meaningful practical difference that warrants attention.  The non-significant result is likely due to: 
+- **Insufficient statistical power:** Only ~35-40% power to detect the observed effect; 28 participants would be needed for 80% power
+- **High variability:** Solo SD=2.59 (122% of mean), Pair SD=7.82 (145% of mean)
+- **Individual differences:** Substantial variation in performance across participants
 
-4. **Individual Variability**:
-   - Extremely high variability was observed in both conditions (solo: **[range]** defects, pair: **[range]** defects).
-   - This suggests that **individual/pair differences may be as important or more important than work mode** in determining review effectiveness. 
-   - Possible explanations: Different interpretations of "defect," varying thoroughness, experience differences, or task understanding issues.
+**Practical significance:** The finding that pairs detect 3.25 additional defects (from 2. 13 to 5.38) may have **practical value** for software teams, even without statistical significance. A 153% improvement in defect detection could justify the cost of pair reviews in high-stakes contexts (e.g., security-critical code). However, this must be balanced against the **high variability**—not all pairs performed equally well. 
 
-**Theoretical Contributions:**
+**2. False Positive Rates:**
+- **Solo:** 45% ± 38% (range: 0%-100%)
+- **Pair:** 48% ± 32% (range: 0%-100%)
+- **Statistical test:** Paired t-test:  t(7) = 0.65, p ≈ 0.54
+- **Conclusion:** No significant difference between solo and pair false positive rates
 
-**[Choose appropriate interpretation based on your results]:**
+**Interpretation:** Both solo and pair reviewers had **high false positive rates** (~45-48%), meaning nearly half of all reported "defects" were invalid. This suggests:
+- **Unclear task definition:** Participants may not have fully understood what constitutes a valid defect
+- **Over-reporting strategy:** Time pressure or performance anxiety may have led to "report everything that looks suspicious" behavior
+- **Need for calibration:** Future experiments should include training on defect classification
 
-**If pairs were more effective:**
-- This study provides empirical support for collaborative code review in detecting defects.
-- The findings align with theories of collaborative problem-solving, suggesting that **dialogue and multiple perspectives** help identify issues that individuals might overlook.
-- The benefit comes at a potential cost (time or doubled person-hours), creating a **quality-efficiency trade-off**.
+The wide range in FP rates (0%-100%) indicates substantial differences in participant understanding or approach to the task. 
 
-**If no significant difference:**
-- This study suggests that for straightforward defect detection tasks, **individual cognitive capacity may be sufficient**. 
-- The lack of pair advantage may reflect that code review is more of an **individual analytical task** (like proofreading) rather than a **collaborative creative task** (like design).
-- Individual reviewer **skill and training** may matter more than working mode. 
+**3. Extreme Variability:**
 
-**If high variability dominated:**
-- This study highlights the **critical importance of reviewer calibration and training**. 
-- The enormous variation (some participants found 0-2 defects, others found 20-52) suggests that **standardizing the review process** and **clarifying defect criteria** are essential.
-- Organizations should focus on **improving reviewer consistency** rather than simply mandating pair reviews.
+The most striking finding is the **extreme heterogeneity** in performance:
+- **Solo:** 0-8 defects (coefficient of variation = 122%)
+- **Pair:** 0-18 defects (coefficient of variation = 145%)
+- **18× difference** between most and least productive pairs
 
-**Practical Implications:**
+**Implications:**
+- **Individual/pair differences may dominate treatment effects:** Who performs the review matters considerably
+- **Pair composition is critical:** Not all pairs are equal; collaboration dynamics significantly affect outcomes
+- **Skill and motivation vary widely:** Participants showed very different levels of engagement and capability
 
-**[Adjust based on your results.  Provide actionable recommendations for software teams]**
+**Practical recommendations:**
+1. **Select skilled reviewers:** Individual capability appears to matter substantially
+2. **Form pairs carefully:** Pair composition and dynamics significantly influence effectiveness
+3. **Provide training:** Calibration on what constitutes a defect would reduce variability and FP rates
+4. **Consider context:** Pair review may be more valuable for complex or critical code where finding more defects justifies the additional effort
 
-For software development teams, these findings suggest: 
+**4. Limitations:**
 
-1. **[Based on your H1 result]**:
-   - **If pairs were more effective**: Use pair review for critical code (security, core algorithms, complex logic) and solo review for routine code. 
-   - **If no difference**: Solo review may be more cost-effective, allowing parallel reviews of multiple components.
-   - **If inconclusive**: Focus on reviewer training and defect checklists rather than mandating work mode. 
+**Statistical limitations:**
+- **Small sample size (n=8):** Insufficient power to detect medium effects with statistical significance
+- **Type II error risk:** Non-significant result may reflect inadequate power rather than true null effect
+- **High variability:** Individual differences create substantial noise, requiring larger samples to detect treatment effects
 
-2. **Reviewer Training is Critical**:
-   - The high variability observed indicates that **individual reviewer skill/thoroughness varies enormously**.
-   - Invest in: 
-     - **Calibration sessions**:  Reviewers discuss sample code to align on "what is a defect"
-     - **Review checklists**: Standardized lists of common defect types to check
-     - **Defect taxonomies**: Clear categories (security, logic, performance, style) with examples
-     - **Metrics and feedback**: Track individual reviewer performance to identify training needs
+**Design limitations:**
+- **Code difficulty imbalance:** Code 2 had 2× more defects than Code 1, potentially confounding results
+- **Data quality issues:** Out-of-bounds line numbers, duplicate entries, and joke inputs suggest some task misunderstanding
+- **Task understanding variability:** Wide range in FP rates (0%-100%) indicates inconsistent interpretation of "defect"
 
-3. **Context Matters**:
-   - **Code complexity**: More complex code may benefit more from pair review
-   - **Domain expertise**: Reviewers unfamiliar with a domain may need pair support
-   - **Time constraints**: If time is limited, solo review allows more parallel coverage
+**Generalizability limitations:**
+- **Student sample:** Results may not generalize to professional developers with more experience and training
+- **Laboratory setting:** Controlled environment lacks the context, stakes, and workflow of real code reviews
+- **Limited code samples:** Only 2 Java files in academic algorithm domains; unclear if results apply to other languages, domains, or code types
+- **Specific collaboration mode:** Results apply to synchronous driver-navigator pairing, which is one of many collaborative review approaches
 
-4. **Consider Hybrid Approaches**:
-   - **Sequential review**: Two individuals review independently, then discuss findings (may combine benefits of both)
-   - **Selective pairing**: Pair junior and senior reviewers for knowledge transfer
-   - **Tool support**: Use automated tools (linters, static analyzers) to catch routine defects, reserving human review for complex logic
+**5. Future Work:**
 
-**Limitations:**
+To address the limitations of this study, future research should: 
 
-The main limitations of this study include:
+1. **Increase sample size:** Recruit ≥28 participants to achieve 80% power for detecting medium effects
+2. **Control code difficulty:** Ensure both code samples have equal numbers of defects and similar complexity
+3. **Include professional developers:** Replicate with industry practitioners to assess external validity
+4. **Provide defect classification training:** Reduce task understanding variability and FP rates through explicit training
+5. **Collect timing data:** Address RQ2 by measuring time spent and calculating defect detection efficiency
+6. **Diversify code samples:** Include multiple languages, domains, and code sizes
+7. **Test different collaboration modes:** Compare synchronous vs. asynchronous, driver-navigator vs. independent review
+8. **Use non-parametric tests:** Given normality violations, report Wilcoxon signed-rank test as primary analysis **[TO COMPLETE]**
 
-1. **Small sample size** (n=11 participants) limits statistical power and generalizability.
-   - **[Report achieved power]**: Power analysis showed achieved power of **[X.XX]** for the observed effect size.
-   - Non-significant results may reflect insufficient power rather than true absence of effects (Type II error risk).
+**6. Conclusions:**
 
-2. **Student participants** rather than professional software developers. 
-   - Students may have less code review experience and domain knowledge.
-   - Professionals may show different patterns due to expertise and motivation. 
-   - **Caution**: Results may not generalize to industry settings. 
+This exploratory study provides **preliminary evidence** that pair code review may improve defect detection compared to solo review, with pairs finding an average of 3.25 more defects (153% increase, Cohen's d=0.49). However, this difference did not reach statistical significance (p=0.10), likely due to insufficient statistical power (n=8, achieved power ~35-40%).
 
-3. **Controlled laboratory setting** with artificial constraints.
-   - Real code reviews involve more context (project history, documentation, architecture knowledge).
-   - 30-minute time limit may have encouraged speed over accuracy.
-   - Real reviews are often asynchronous and distributed.
+The **high variability** in performance suggests that individual reviewer capability and pair dynamics may be as important—or more important—than the choice between solo and pair review. Organizations should focus on:
+- Selecting skilled reviewers
+- Forming effective pairs with compatible collaboration styles
+- Providing training on defect identification and classification
+- Applying pair review selectively to high-value or complex code
 
-4. **Limited code samples** (only 2 Java programs, ~500 LOC each).
-   - Results may not generalize to other languages (Python, JavaScript, C++), paradigms (functional programming), or domains (web development, embedded systems).
-   - Code complexity and domain affect review difficulty. 
+**Critical caveat:** Results are based on senior computer science students reviewing academic Java code in a controlled laboratory setting. Generalization to professional software development requires replication with industry practitioners, diverse code samples, and realistic review workflows.
 
-5. **Data quality concerns**:
-   - **[If outliers were present]**: Extreme outliers (e.g., **[participant X reporting Y defects]**) may distort results.
-   - **[If task understanding varied]**: Different interpretations of "what is a defect" may have confounded comparisons.
-
-6. **Pair dynamics variability**:
-   - The pair condition showed enormous variability (**[range]** defects), suggesting that **how** pairs collaborate matters as much as **whether** they collaborate.
-   - Some pairs may have had poor dynamics (one person dominant, poor communication).
-
-
-**Future Work:**
-
-To build on this exploratory study, future research should: 
-
-1. **Replication with larger sample**:
-   - Target n≥30 to achieve adequate statistical power (≥0.80) for medium effect sizes.
-   - Use power analysis to determine required sample size based on observed effect size from this study:  d = **[your Cohen's d]**.
-
-2. **Professional developer sample**:
-   - Conduct the same experiment with experienced software engineers in industry.
-   - Compare student vs. professional performance to assess generalizability. 
-   - Investigate whether experience moderates the solo vs. pair effect.
-
-3. **Broaden code samples**:
-   - Multiple programming languages (Python, JavaScript, C++, Go)
-   - Different paradigms (object-oriented, functional, procedural)
-   - Varying complexity levels (simple scripts to complex systems)
-   - Different domains (web apps, data science, embedded systems, security-critical code)
-
-4. **Longer-term naturalistic studies**:
-   - Observational studies of real code review in industry (e.g., GitHub PR reviews)
-   - Collect data on defects found, time spent, false positives, and defects that escaped to production
-   - Control for confounds (code complexity, reviewer experience) through statistical modeling
-
-5. **Investigate pair dynamics**:
-   - What makes some pairs highly effective (52 defects) and others less so (1-2 defects)?
-   - Study communication patterns, division of labor, and decision-making in pairs. 
-   - Develop guidelines for effective pair code review (e.g., "ensure both people actively participate").
-
-6. **Hybrid approaches**:
-   - Compare solo, pair, and sequential-then-discuss review methods.
-   - Test tool-supported review (linters + human review) vs. pure human review.
-   - Investigate optimal team sizes (2 vs. 3 vs. 4 reviewers).
-
-7. **Defect severity weighting**:
-   - Analyze not just defect count, but weighted defect score (Critical=3, Major=2, Minor=1).
-   - Investigate whether pairs are better at finding critical vs. minor defects. 
-   - Study reviewer calibration:  Do pairs agree more on severity ratings? 
-
-8. **Cost-benefit analysis**:
-   - Model the trade-off:  (defects found × defect fix cost in production) vs. (review time cost).
-   - Determine ROI breakeven point:  When does pair review pay off economically? 
-
-9. **Reviewer training interventions**:
-   - Randomized controlled trial:  Trained vs. untrained reviewers, solo vs. pair. 
-   - Develop and evaluate training programs for effective code review.
-   - Measure training impact on consistency and defect detection. 
-
-10. **Meta-analysis**:
-    - Combine this study with future replications for aggregate effect size estimation.
-    - Investigate moderators:  experience, code type, review duration. 
-
-**Final Conclusion:**
-
-**[Write 2-3 sentences summarizing the key takeaway, adjusted for your actual findings.  Examples below]**
-
-**Example A (if pairs were better):**
-This study provides preliminary evidence that pair code review can improve defect detection compared to solo review, with a **[small/medium/large]** effect size (d = **[X.XX]**). However, the small sample size (n=11), student population, and high variability limit generalizability. Software teams should consider pair review for critical code while investing in reviewer training and calibration to reduce the large individual differences observed in this study.
-
-**Example B (if no difference):**
-This study found no significant difference in defect detection between pair and solo code review (p = **[X.XX]**, d = **[X.XX]**). The high variability in individual/pair performance suggests that reviewer skill and task understanding may matter more than work mode. Software teams should focus on reviewer training, clear defect criteria, and efficient allocation of review resources rather than mandating pair reviews.  Replication with larger samples and professional developers is needed to confirm these findings.
-
-**Example C (if inconclusive due to data issues):**
-This exploratory study revealed substantial challenges in measuring code review effectiveness, including high variability in reviewer performance, potential differences in task understanding, and data quality issues. While the study provides initial data on solo vs. pair code review (mean defects:  solo = **[X.XX]**, pair = **[X.XX]**), the small sample (n=11) and methodological limitations prevent strong conclusions. The most important finding may be that **reviewer calibration and clear defect definitions are critical** for valid comparisons.  Future research should address these methodological challenges while investigating the conditions under which pair review is most beneficial.
+**Final recommendation:** Given the medium effect size and practical significance, pair code review warrants further investigation with adequately powered studies. Organizations interested in adopting pair review should conduct pilot studies within their specific context to assess effectiveness given their team composition, code characteristics, and development workflows.
 
 ---
 
-**Data Availability Statement:**
-
-**[Choose appropriate statement]**
-
-- The raw data collected in this experiment, including participant responses and defect reports, are available upon request from the authors.
-- **OR**:  The data are available in the supplementary materials / GitHub repository:  **[URL]**
-- **OR**: The data contain potentially identifying information about participants and are therefore not publicly available, but aggregate statistics are reported in this paper.
-
-**Conflict of Interest Statement:**
-
-The authors declare no conflicts of interest. 
-
-**Acknowledgments:**
-
-We thank the participants who volunteered their time for this experiment, and the instructors of the Quality Management and Experimental Software Engineering course at Poznan University of Technology for their guidance and support.
-
----
-
-**References**
-
-*[Optional: Add if you cited any sources]*
-
-- Fagan, M. E. (1976). Design and code inspections to reduce errors in program development.  *IBM Systems Journal*, 15(3), 182-211.
-- Porter, A., Siy, H., Toman, C.  A., & Votta, L. G. (1997). An experiment to assess the cost-benefits of code inspections in large scale software development. *IEEE Transactions on Software Engineering*, 23(6), 329-346.
-- Williams, L., & Kessler, R. (2000). All I really need to know about pair programming I learned in kindergarten. *Communications of the ACM*, 43(5), 108-114.
-
----
-
-## Appendices
-
-### Appendix A: Raw Data Tables
-
-**[Data table in the github repository]**
-
-**Code 1 - Solo Reviewers:**
-
-| Participant | Reported Line Numbers | Count |
-|-------------|----------------------|-------|
-| Kasia P.  | 196 | 1 |
-| Tomek | 464, 480, 481, 6, 7, 12, 24, 42, 60, 72, 74, 78, 87, 105, 108, 111, 105, 136, 143, 151, 159, 187 | 20 (with 1 duplicate) |
-| Ola | 464, 357 | 2 |
-| Erasmus | 464, 145 | 2 |
-
-**Code 1 - Pair Reviewers:**
-
-| Pair | Reported Line Numbers | Count |
-|------|----------------------|-------|
-| Dominik + Kasia R. | 195, 291 | 2 |
-| Mateusz + Piotr | 358 | 1 |
-
-**Code 2 - Solo Reviewers:**
-
-| Participant | Reported Line Numbers | Count |
-|-------------|----------------------|-------|
-| Kasia R. | 19, 153, 419 | 3 |
-| Dominik | 19, 47-51, 77-96 | 3|
-| Piotr | (none) | 0 |
-| Mateusz | 42, 87, 119, 389, 38, 2137, 39 | 7 |
-
-**Code 2 - Pair Reviewers:**
-
-| Pair | Reported Line Numbers | Count |
-|------|----------------------|-------|
-| Ola + Dominika | 464, 2137 | 2 |
-| Kasia P. + Tomek | 526, 526, 528, 535, 536, 537, 538, 539, 544, 16, 24, 17, 19, 20, 21, 25, 26, 30, 34, 40, 41, 44, 50, 52, 58, 68, 70, 76, 74, 85, 87, 107, 115, 121, 129, 135, 143, 147, 187, 248, 272, 288, 291, 295, 299, 304, 306, 333, 365, 365, 395, 447, 448 | 52 |
-| Michal + Erasmus | 524, 127 |
-
-### Appendix B:  Answer Key
-
-## tree_and_binary_search.java Analysis
-
-| Line Number | Code/Issue | Classification | Reasoning |
-|-------------|------------|----------------|-----------|
-| 196 | `return false;` in findPathHelper | **TP** | **Path not removed from list before returning false** - leaves incorrect path in list |
-| 464 | Line doesn't exist | **FP** | Out of bounds |
-| 357 | Line doesn't exist | **FP** | Out of bounds |
-| 145 | `return countLeavesHelper(tree.getRoot());` | **TP** | **No null check** - crashes on empty tree |
-| 195 | `return false;` in findPathHelper | **TP** | Same as 196 - path corruption issue |
-| 358 | Line doesn't exist | **FP** | Out of bounds |
-| 291 | `if (node.value <= min \|\| node.value >= max)` | **TP** | **Should use < and >** for proper BST validation |
-| 480 | Line doesn't exist | **FP** | Out of bounds |
-| 481 | Line doesn't exist | **FP** | Out of bounds |
-| 6 | `TreeNode right;` | **TP** | **Not final** - should be immutable for safer tree structure |
-| 7 | `public TreeNode(int value)` | **FP** | Valid constructor |
-| 12 | `if (this == o) return true;` | **FP** | Standard pattern |
-| 24 | `this.size = 0;` | **TP** | **Redundant** - default value is already 0 |
-| 42 | `private TreeNode insertHelper(...)` | **TP** | **No duplicate handling documented** - silently ignores duplicates |
-| 60 | `private boolean searchHelper(...)` | **TP** | **No null check at entry** - will NPE on empty tree |
-| 72 | `public void delete(int value)` | **TP** | **Decrements size even if element not found** |
-| 74 | `private TreeNode deleteHelper(...)` | **FP** | Valid signature |
-| 78 | `if (node == null)` | **FP** | Correct check |
-| 87 | `if (node.left == null) return node.right;` | **FP** | Correct logic |
-| 105 | `return current.value;` in findMax | **TP** | **No null check** - crashes on empty tree |
-| 108 | `public List<Integer> inorderTraversal()` | **FP** | Valid |
-| 111 | `return result;` | **FP** | Valid |
-| 105 | (duplicate) findMax | **TP** | Same issue - no null check |
-| 136 | `return getHeightHelper(root);` | **TP** | **Could cache height** - recalculated every time (inefficient) |
-| 143 | `return Math.max(leftHeight, rightHeight) + 1;` | **FP** | Correct calculation |
-| 151 | `return size;` | **FP** | Valid getter |
-| 159 | `return isBalancedHelper(root) != -1;` | **TP** | **Recalculates every time** - not cached (inefficient) |
-| 187 | `return count;` | **FP** | Valid |
-
-## graph_algorithms.java Analysis
-
-| Line Number | Code/Issue | Classification | Reasoning |
-|-------------|------------|----------------|-----------|
-| 42 | N/A | **FP** | Wrong file |
-| 464 | N/A | **FP** | Out of bounds |
-| 526 | N/A | **FP** | Out of bounds |
-| 524 | N/A | **FP** | Out of bounds |
-| 19 | `adjacencyList.get(source).add(...)` | **TP** | **No check if list exists** - could fail if adjacency list corrupted |
-| 87 | `int current = queue.poll();` | **FP** | Valid |
-| 2137 | N/A | **FP** | huehuehuehuehuehuehue|
-| 127 | `if (edges != null)` | **TP** | **Defensive check shouldn't be needed** - indicates design issue |
-| 153 | `public int findLongestPath(int start)` | **TP** | **Doesn't work with cycles** - algorithm fundamentally broken for general graphs |
-| 47-51 | Constructor loop | **TP** | **Pre-allocating all vertices** - wasteful if graph is sparse |
-| 77-96 | dijkstra method | **TP** | **Doesn't handle unreachable vertices clearly** - returns MAX_VALUE |
-| 119 | `visited[vertex] = true;` | **FP** | Valid |
-| 389 | `findAllPathsUtil(...)` | **TP** | **currentPath shared reference** - all paths point to same list |
-| 38 | `visited[start] = true;` | **TP** | **Marked visited too early** - before actually visiting |
-| 39 | `while (!queue.isEmpty())` | **FP** | Valid |
-| 16 | `adjacencyList = new HashMap<>();` | **TP** | **Could use array** - vertices are integers 0 to n-1 |
-| 17 | `for (int i = 0; i < vertices; i++)` | **FP** | Valid |
-| 19 | (duplicate) | **TP** | Same as above |
-| 20 | `adjacencyList.put(i, new ArrayList<>());` | **TP** | **All lists created upfront** - memory waste for sparse graphs |
-| 21 | `}` | **FP** | Valid |
-| 24 | `public void addEdge(...)` | **FP** | Valid |
-| 25 | `if (source >= vertexCount \|\| destination >= vertexCount)` | **TP** | **Should also check negative values** |
-| 26 | `throw new IllegalArgumentException(...)` | **FP** | Appropriate |
-| 30 | `public void addBidirectionalEdge(...)` | **TP** | **Adds edge twice** - inefficient, should batch |
-| 34 | `public List<Integer> bfs(int start)` | **TP** | **No bounds check on start** - could crash |
-| 40 | `queue.offer(start);` | **FP** | Valid |
-| 41 | `visited[start] = true;` | **FP** | Valid |
-| 44 | `while (!queue.isEmpty())` | **FP** | Valid |
-| 50 | `for (Edge edge : neighbors)` | **FP** | Valid |
-| 52 | `if (!visited[edge.destination])` | **FP** | Valid |
-| 58 | `public List<Integer> dfs(int start)` | **TP** | **No bounds check on start** |
-| 68 | `result.add(vertex);` | **FP** | Valid |
-| 70 | `List<Edge> neighbors = adjacencyList.get(vertex);` | **FP** | Valid |
-| 76 | `public Map<Integer, Integer> dijkstra(int start)` | **TP** | **No bounds check on start** |
-| 74 | Previous line | **FP** | Valid |
-| 85 | `Node current = pq.poll();` | **FP** | Valid |
-| 87 | (duplicate) | **FP** | Valid |
-| 107 | `public List<Integer> getShortestPath(...)` | **TP** | **Returns partial path even if unreachable** |
-| 115 | `while (!pq.isEmpty())` | **FP** | Valid |
-| 121 | `if (current.vertex == end)` | **FP** | Valid optimization |
-| 129 | Path reconstruction | **FP** | Valid |
-| 135 | `Collections.reverse(path);` | **TP** | **Could build in reverse order** - more efficient |
-| 143 | `public boolean hasCycle()` | **TP** | **Checks all vertices unnecessarily** - stops at first cycle but iterates all |
-| 147 | `for (int i = 0; i < vertexCount; i++)` | **TP** | **Doesn't check if already visited** - redundant work |
-| 187 | `return count;` | **FP** | Valid |
-| 248 | `dfsComponent(i, visited, component);` | **FP** | Valid |
-| 272 | `dfsLongestPath(...)` | **TP** | **Visited never reset between vertices** - incorrect results |
-| 288 | `public boolean pathExists(...)` | **TP** | **Start vertex not marked visited initially** |
-| 291 | `return true;` | **FP** | Valid |
-| 295 | `visited[current] = true;` | **TP** | **Should mark when adding to queue** - may add duplicates |
-| 299 | `List<Edge> neighbors = ...` | **FP** | Valid |
-| 304 | `for (Edge edge : neighbors)` | **FP** | Valid |
-| 306 | `queue.offer(edge.destination);` | **FP** | Valid |
-| 333 | `findAllPathsUtil(...)` | **TP** | **Shared list reference bug** |
-| 365 | (duplicate) | **TP** | **Same list reference issue** |
-| 365 | (duplicate) | **TP** | Same |
-| 395 | `visited[current] = false;` | **FP** | Correct backtracking |
-| 447 | `degrees[vertex] = edges.size();` | **TP** | **Only calculates out-degree** - method name misleading |
-| 448 | `return degrees;` | **FP** | Valid |
-
-## Summary Statistics
-
-**tree_and_binary_search.java:**
-- True Positives: **14** (lines 196, 145, 195, 291, 6, 24, 42, 60, 72, 105 (x2), 136, 159)
-- False Positives: **11**
-
-**graph_algorithms.java:**
-- True Positives: **29** (lines 19, 127, 153, 47-51, 77-96, 389, 38, 16, 19, 20, 25, 30, 34, 58, 76, 107, 135, 143, 147, 272, 288, 295, 333, 365 (x2), 447)
-- False Positives: **30**
----
-
-**END OF REPORT**
-
-**NEXT STEPS TO FINISH THE PROJECT:**
-1. ✅ **Calculate descriptive statistics**:
-   - Mean ± SD true positives (solo vs.  pair)
-   - Mean ± SD false positive rate (solo vs. pair)
-2. ✅ **Perform normality test**:  Shapiro-Wilk on difference scores (pair - solo for each participant)
-3. ✅ **Conduct hypothesis test**:  Paired t-test or Wilcox
+**End of Report**
