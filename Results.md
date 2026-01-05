@@ -149,7 +149,7 @@ code-review-experiment/
 ├── README.md (instructions)
 ├── Form ENG.csv
 ├── graph_algorithms.java (code 2)
-├── tree_and_binary_search.java (code 1)
+└── tree_and_binary_search.java (code 1)
 ```
 
 **2. Technical Environment:**
@@ -277,6 +277,7 @@ After the experiment:
 - Complete data sets (both sessions): 11 participants (all completed both sessions)
 - Excluded participants: None
 - Survey response rate: 100%
+
 **Validated Results by Participant/Pair:**
 
 **Code 1 (tree_and_binary_search.java) - Solo reviewers:**
@@ -394,30 +395,18 @@ After the experiment:
 
 **Solo Performance (n=8):**
 - TPs: 1, 8, 0, 1, 3, 2, 2, 0
-- **Mean Solo TP = (1+8+0+1+3+2+2+0)/8 = 17/8 = 2.125 ≈ 2.13**
-- **SD Solo TP = 2.59** 
-  - Variance = [(1-2.125)² + (8-2.125)² + (0-2.125)² + (1-2.125)² + (3-2.125)² + (2-2.125)² + (2-2.125)² + (0-2.125)²]/7
-  - = [1.266 + 34.516 + 4.516 + 1.266 + 0.766 + 0.016 + 0.016 + 4.516]/7
-  - = 46.875/7 = 6.696
-  - SD = √6.696 = 2.59
+- **Mean Solo TP = 2.13 ± 2.59**
+- **Range: 0-8**
 
 **Pair Performance (n=8):**
 - Pair TPs: 18, 18, 0, 1, 2, 2, 1, 1
-- **Mean Pair TP = (18+18+0+1+2+2+1+1)/8 = 43/8 = 5.375 ≈ 5.38**
-- **SD Pair TP = 7.82**
-  - Variance = [(18-5.375)² + (18-5.375)² + (0-5.375)² + (1-5.375)² + (2-5.375)² + (2-5.375)² + (1-5.375)² + (1-5.375)²]/7
-  - = [159.516 + 159.516 + 28.891 + 19.141 + 11.391 + 11.391 + 19.141 + 19.141]/7
-  - = 428.125/7 = 61.161
-  - SD = √61.161 = 7.82
+- **Mean Pair TP = 5.38 ± 7.82**
+- **Range: 0-18**
 
 **Difference Scores (Pair - Solo):**
 - Differences: +17, +10, 0, 0, -1, 0, -1, +1
-- **Mean Difference = (17+10+0+0-1+0-1+1)/8 = 26/8 = 3.25**
-- **SD of Differences = 6.63**
-  - Variance = [(17-3.25)² + (10-3.25)² + (0-3.25)² + (0-3.25)² + (-1-3.25)² + (0-3.25)² + (-1-3.25)² + (1-3.25)²]/7
-  - = [189.063 + 45.563 + 10.563 + 10.563 + 18.063 + 10.563 + 18.063 + 5.063]/7
-  - = 307.5/7 = 43.929
-  - SD = √43.929 = 6.63
+- **Mean Difference = 3.25 ± 6.63**
+- **Range: -1 to +17**
 
 | Metric | Solo | Pair |
 |--------|------|------|
@@ -439,9 +428,7 @@ After the experiment:
 
 **Summary:**
 - **Mean Solo FP Rate** (excluding Piotr's undefined): (0.00 + 0.60 + 1.00 + 0.50 + 0.00 + 0.33 + 0.71)/7 = 3.14/7 = **0.45 ± 0.38 (45%)**
-  - SD = 0.38
 - **Mean Pair FP Rate**: (0.65 + 0.65 + 1.00 + 0.50 + 0.00 + 0.00 + 0.50 + 0.50)/8 = 3.80/8 = **0.48 ± 0.32 (48%)**
-  - SD = 0.32
 
 ### Hypotheses Testing
 
@@ -449,14 +436,11 @@ After the experiment:
 
 **Shapiro-Wilk Test on Difference Scores [17, 10, 0, 0, -1, 0, -1, 1]:**
 
-**[TO COMPLETE - You need statistical software to calculate exact W and p-value]**
+The Shapiro-Wilk test was conducted to assess the normality of the difference scores (Pair - Solo):
 
-**Recommended approach:**
-- Use R:  `shapiro.test(c(17, 10, 0, 0, -1, 0, -1, 1))`
-- Use Python scipy: `scipy.stats.shapiro([17, 10, 0, 0, -1, 0, -1, 1])`
-- Use online calculator
+- **W = 0.6880, p = 0.0016**
 
-**Expected result:** Given the extreme outliers (17, 10), the data likely violates normality.  If p < 0.05, use non-parametric Wilcoxon signed-rank test.
+**Interpretation:** The difference scores significantly deviate from normality (W = 0.6880, p = 0.0016). This violation was expected given the extreme outliers (+17, +10) and clustering of zeros (4 out of 8 participants showed no change). Therefore, **the Wilcoxon signed-rank test is used as the primary analysis**, with the t-test reported as supplementary.
 
 ---
 
@@ -474,71 +458,69 @@ Given:
 - n = 8
 - df = 7
 
-Calculations:
-- **SE of difference = SD / √n = 6.63 / √8 = 6.63 / 2.828 = 2.344**
-- **t-statistic = Mean difference / SE = 3.25 / 2.344 = 1.386**
+Results:
+- **SE of difference = SD / √n = 6.63 / √8 = 2.344**
+- **t-statistic = Mean difference / SE = 3.25 / 2.344 = 1.387**
 - **df = 7**
-- **p-value (one-tailed)** = **[TO COMPLETE - use t-table or calculator]**
-  - For t = 1.386, df = 7, one-tailed:  p ≈ 0.10
+- **p-value (one-tailed) = 0.104**
 
-**Decision:** At α = 0.05, **fail to reject H1₀** (p > 0.05)
+**Decision:** At α = 0.05, **fail to reject H1₀** (p = 0.104 > 0.05)
 
 **Effect Size (Cohen's d):**
 - **Cohen's d = Mean difference / SD of differences**
 - **d = 3.25 / 6.63 = 0.49**
 - **Interpretation:  Medium effect size** (d = 0.5 is considered medium by Cohen's conventions:  small = 0.2, medium = 0.5, large = 0.8)
 
-**Non-Parametric Analysis (Wilcoxon Signed-Rank Test):**
+**Non-Parametric Analysis (Wilcoxon Signed-Rank Test) - PRIMARY ANALYSIS:**
 
-**[TO COMPLETE - Recommended given likely normality violation]**
+Given the violation of normality assumptions, the Wilcoxon signed-rank test serves as the primary statistical test.
 
 Difference scores: +17, +10, 0, 0, -1, 0, -1, +1
 
-Steps:
+Procedure:
 1. Remove zeros: +17, +10, -1, -1, +1 (n=5)
-2. Rank absolute values: |17|=5, |10|=4, |-1|=2. 5, |-1|=2.5, |1|=2. 5 (ties)
-3. Assign signs: +5, +4, -2.5, -2.5, +2.5
-4. Sum positive ranks: W+ = 5 + 4 + 2.5 = 11.5
-5. Sum negative ranks: W- = 2.5 + 2.5 = 5
-6. Test statistic: W = min(W+, W-) = 5
+2. Rank absolute values: |17|=5, |10|=4, |-1|=2, |-1|=2, |1|=2 (average rank for ties = 2)
+3. Assign signs: +5, +4, -2, -2, +2
+4. Sum positive ranks: W+ = 5 + 4 + 2 = 11
+5. Sum negative ranks: W- = 2 + 2 = 4
+6. Test statistic: V = 11 (sum of positive ranks in R's implementation)
 
-**Use statistical software or table to find p-value for W=5, n=5**
+**Results:**
+- **V = 11, p = 0.205 (one-tailed)**
+- **Effect size r = 0.291** (small to medium effect; r: 0.1=small, 0.3=medium, 0.5=large)
 
-Expected result: Given small n after removing zeros, power is very low. 
+**Decision:** At α = 0.05, **fail to reject H1₀** (p = 0.205 > 0.05)
+
+**Interpretation:** The Wilcoxon signed-rank test confirms the t-test finding: pairs did not find significantly more defects than solo reviewers (V = 11, p = 0.205). However, the effect size (r = 0.291) suggests a small to medium practical effect. The small effective sample size (n = 5 after removing zeros) severely limits statistical power to detect effects.
 
 ---
 
 **Power Analysis:**
 
+**Note:** Power analysis using the `pwr` package could not be completed in the current computational environment. Based on standard power analysis tables for paired t-tests with the observed parameters:
+
 **Observed effect size:** Cohen's d = 0.49 (medium effect)
 
-**Achieved power for observed effect:**
-
-**[TO COMPLETE - Use G*Power or online calculator]**
-
-Input parameters:
+**Estimated achieved power:**
 - Test: Paired t-test (one-tailed)
 - Effect size d = 0.49
 - α = 0.05
 - Sample size n = 8
+- **Estimated power ≈ 0.35-0.40 (35-40%)**
 
-**Expected result:** Power ≈ 0.35-0.40 (low)
+**Estimated required sample size for 80% power:**
+- To detect an effect of d = 0.49 with 80% power
+- **Estimated required n ≈ 27-30 participants**
 
-**Minimum detectable effect size at 80% power:**
+**Estimated minimum detectable effect at 80% power:**
+- With current sample size n = 8
+- **Estimated minimum detectable d ≈ 1.0-1.2 (large effect)**
 
-**[TO COMPLETE - Use G*Power]**
-
-Input parameters:
-- Test: Paired t-test (one-tailed)
-- α = 0.05
-- Power = 0.80
-- Sample size n = 8
-
-**Expected result:** Minimum detectable d ≈ 1.0-1.2 (large effect)
-
-**Interpretation:** With n=8, this study had only ~35-40% power to detect the observed medium effect (d=0.49). To achieve 80% power, either:
-- Sample size would need to be ~28 participants, OR
+**Interpretation:** With n=8, this study had approximately 35-40% power to detect the observed medium effect (d=0.49). To achieve 80% power, either:
+- Sample size would need to be approximately 27-30 participants, OR
 - True effect would need to be large (d > 1.0)
+
+This low power substantially increases the risk of Type II error (failing to detect a real effect). The non-significant results should be interpreted with caution, as they may reflect insufficient power rather than true absence of effect.
 
 ---
 
@@ -566,38 +548,39 @@ Input parameters:
 - SD of Differences = 0.35
 
 **Paired t-test on FP rates:**
-- t = 0.08 / (0.35/√8) = 0.08 / 0.124 = **0.65**
-- df = 7
-- **p-value ≈ 0.54 (two-tailed)** **[TO COMPLETE - verify with calculator]**
+- **t = 0.702, df = 7**
+- **p-value = 0.505 (two-tailed)**
 
-**Conclusion:** No significant difference in false positive rates between solo (39%) and pair (48%) conditions (t=0.65, p=0.54).
+**Conclusion:** No significant difference in false positive rates between solo (39%) and pair (48%) conditions (t = 0.702, p = 0.505).
 
 ### Interpretation of Results
 
 **Main Findings:**
 
-**RQ1: Do pairs find more defects? **
+**RQ1: Do pairs find more defects?**
 
 Based on the statistical analysis:
 - **Solo reviewers** detected an average of **2.13 ± 2.59** valid defects (range: 0-8)
 - **Pair reviewers** detected an average of **5.38 ± 7.82** valid defects (range:  0-18)
 - **Mean difference:** Pairs found 3.25 more defects on average
-- **Statistical test:** Paired t-test:  t(7) = 1.386, p ≈ 0.10 (one-tailed)
-- **Effect size:** Cohen's d = 0.49 (medium effect)
+- **Primary statistical test:** Wilcoxon signed-rank test:  V = 11, p = 0.205 (one-tailed)
+- **Supplementary test:** Paired t-test:  t(7) = 1.387, p = 0.104 (one-tailed)
+- **Effect sizes:** Cohen's d = 0.49 (medium); r = 0.291 (small to medium)
 - **Decision:** **Failed to reject the null hypothesis** at α = 0.05
 
-**Interpretation:** While pairs detected 153% more defects on average (5.38 vs.  2.13), this difference was **not statistically significant** (p = 0.10). However, the **medium effect size (d = 0.49)** suggests a meaningful practical difference that may have been obscured by: 
-1. **Small sample size** (n=8 provides only ~35-40% power to detect this effect)
+**Interpretation:** While pairs detected 153% more defects on average (5.38 vs. 2.13), this difference was **not statistically significant** (Wilcoxon: p = 0.205; t-test: p = 0.104). However, the **medium effect size (d = 0.49)** suggests a meaningful practical difference that may have been obscured by: 
+1. **Small sample size** (n=8 provides only ~35-40% estimated power to detect this effect)
 2. **High variability** in both conditions (SD of 2.59 for solo, 7.82 for pair)
 3. **Extreme individual differences** in performance
+4. **Non-normal distribution** with extreme outliers (+17, +10) and clustered zeros
 
-**Power analysis** revealed that detecting the observed effect (d=0.49) with 80% power would require approximately **28 participants** rather than 8. Conversely, with n=8, only **very large effects (d > 1.0)** could be reliably detected.
+**Power analysis** revealed that detecting the observed effect (d=0.49) with 80% power would require approximately **27-30 participants** rather than 8. Conversely, with n=8, only **very large effects (d > 1.0)** could be reliably detected.
 
-**Practical significance:** Despite statistical non-significance, the finding that pairs detected 3.25 more defects on average may have **practical value** for code review practices, warranting further investigation with larger samples.
+**Practical significance:** Despite statistical non-significance, the finding that pairs detected 3.25 more defects on average may have **practical value** for code review practices, warranting further investigation with larger samples. The substantial effect size combined with the directionally consistent (though non-significant) results from both parametric and non-parametric tests suggests this finding deserves attention.
 
 **RQ2: Is solo review faster?**
 
-**Time data was not collected in this experiment. ** This research question cannot be answered. 
+**Time data was not collected in this experiment.** This research question cannot be answered. 
 
 **Secondary Findings:**
 
@@ -605,12 +588,11 @@ Based on the statistical analysis:
 
 - **Solo FP rate:** 45% ± 38% (range: 0%-100%)
 - **Pair FP rate:** 48% ± 32% (range: 0%-100%)
-- **Difference:** Not statistically significant (t = 0.65, p = 0.54)
+- **Difference:** Not statistically significant (t = 0.702, p = 0.505)
 
 **Interpretation:** Both solo and pair reviewers had similarly high false positive rates (~45-48%), meaning nearly half of all reported "defects" were invalid.  This suggests: 
 - **Task ambiguity:** Participants may have had unclear understanding of what constitutes a defect
 - **Over-reporting:** Time pressure or performance anxiety may have led to reporting marginal issues
-- **Need for calibration:** Future experiments should include defect classification training
 
 Notable variation exists between participants, with some achieving 0% FP rates while others reached 100%, indicating substantial differences in understanding or strategy.
 
@@ -667,9 +649,9 @@ Conclusion validity concerns whether we can correctly infer a relationship betwe
 - *Mitigation*:  Within-subjects design was chosen to increase statistical power by controlling for individual differences.  Each participant served as their own control, effectively maximizing information from the available sample. 
 - *Residual risk*: **HIGH**. Power analysis revealed: 
   - **Achieved power:** ~35-40% for the observed medium effect (d=0.49)
-  - **Required sample size:** ~28 participants needed for 80% power
+  - **Required sample size:** ~27-30 participants needed for 80% power
   - **Minimum detectable effect:** d > 1.0 (very large) for 80% power with n=8
-- *Impact*: The non-significant result (p=0.10) may represent a **Type II error**—failing to detect a real effect due to insufficient power rather than true absence of effect.  The medium effect size (d=0.49) suggests pairs may genuinely find more defects, but the study lacked power to confirm this statistically.
+- *Impact*: The non-significant result (Wilcoxon: p=0.205; t-test: p=0.104) may represent a **Type II error**—failing to detect a real effect due to insufficient power rather than true absence of effect.  The medium effect size (d=0.49) suggests pairs may genuinely find more defects, but the study lacked power to confirm this statistically.
 
 **Threat 2:  Reliability of Measurements**
 
@@ -684,12 +666,12 @@ Conclusion validity concerns whether we can correctly infer a relationship betwe
 **Threat 3: Violation of Statistical Test Assumptions**
 
 - *Description*: Parametric tests assume normality of distributions (specifically, difference scores in paired tests).
-- *Mitigation*: **[TO COMPLETE - Run Shapiro-Wilk test]**.  If normality is violated, Wilcoxon signed-rank test should be used. 
-- *Residual risk*: **HIGH**. The difference scores [17, 10, 0, 0, -1, 0, -1, 1] contain: 
+- *Mitigation*: Shapiro-Wilk test was conducted (W = 0.6880, p = 0.0016), confirming violation of normality. Wilcoxon signed-rank test was used as the primary analysis.
+- *Residual risk*: **MITIGATED**. The difference scores [17, 10, 0, 0, -1, 0, -1, 1] contain: 
   - **Extreme outliers** (+17, +10)
   - **Clustered zeros** (4 out of 8 participants showed no change)
-  - This distribution is likely **non-normal**, violating t-test assumptions
-- *Recommendation*: **Complete Wilcoxon signed-rank test** as the primary analysis.  The t-test results should be reported as supplementary assuming normality.
+  - This distribution is **non-normal**, violating t-test assumptions
+- *Action taken*: **Wilcoxon signed-rank test was completed and reported as the primary analysis.** The t-test results are reported as supplementary, acknowledging the normality violation.
 
 **Threat 4: Outliers and Data Quality**
 
@@ -733,7 +715,6 @@ Internal validity concerns whether the observed effects can be attributed to the
   - This is a **major imbalance** contrary to the claim they were "similar"
 - *Mitigation*: Counterbalancing ensures each code was reviewed by both solo and pair conditions. 
 - *Residual risk*: **HIGH**. The 2× defect count difference is a major confound.  Code 2 may have been genuinely harder (more defects to find) or just longer/more complex.  This could interact with work mode:  pairs may benefit more on harder code. 
-- *Recommendation*: Future studies must ensure equal defect counts or explicitly model code difficulty as a factor.
 
 **Threat 4: Hawthorne Effect**
 
@@ -895,10 +876,11 @@ External validity concerns the generalizability of findings to other contexts, p
 3. ✓ **Realistic task** using actual Java code with embedded defects representative of real issues
 4. ✓ **Controlled environment** (GitHub Codespaces, time limits, standardized reporting)
 5. ✓ **Balanced treatment order** to control for learning and fatigue effects
+6. ✓ **Appropriate statistical analysis** using non-parametric test given normality violation
 
-**Critical limitations requiring action:**
+**Critical limitations:**
 1. ✗ **Very small sample** (n=8) → **Achieved only ~35-40% power** → High risk of Type II error
-2. ✗ **Normality violation** (likely due to outliers) → **[TO COMPLETE:  Must use Wilcoxon signed-rank test]**
+2. ✗ **Normality violation** confirmed (W=0.6880, p=0.0016) → **Addressed by using Wilcoxon test**
 3. ✗ **Task understanding variability** → FP rates 0%-100%, reporting 0-52 defects
 4. ✗ **Code difficulty imbalance** → Code 2 had 207% more defects than Code 1 → Confounds results
 5. ✗ **Pair dynamics variability** → Large differences in pair performance
@@ -907,19 +889,12 @@ External validity concerns the generalizability of findings to other contexts, p
 8. ✗ **Limited code samples** → Only 2 Java files, specific domains → Generalization to other languages/domains questionable
 
 **Most critical threats (priority order):**
-1. **Task understanding inconsistency:** Participants used different criteria for "what is a defect," evidenced by 0%-100% FP rates. 
-2. **Insufficient statistical power:** Only 35-40% power to detect the observed effect.  **Results may be false negative (Type II error).**
+1. **Insufficient statistical power:** Only 35-40% power to detect the observed effect.  **Results may be false negative (Type II error).**
+2. **Task understanding inconsistency:** Participants used different criteria for "what is a defect," evidenced by 0%-100% FP rates. 
 3. **Code difficulty imbalance:** 2× defect count difference between codes is a major confound.  **Future studies must control this.**
 4. **High variability:** Individual/pair differences may dominate treatment effects. 
 
-**Essential actions before finalizing conclusions:**
-1. **[TO COMPLETE]** Run Wilcoxon signed-rank test (non-parametric)
-
-**Recommendation:** Add a "Limitations" subsection to the Conclusions section explicitly stating: 
-- Small sample size and insufficient power
-- High variability suggests individual/pair differences matter substantially
-- Generalization limited to students, Java, laboratory settings
-- Replication needed with larger sample, professional developers, and controlled code difficulty
+**Recommendation:** The normality violation has been addressed by completing the Wilcoxon signed-rank test as the primary analysis. However, the small sample size and high variability remain critical limitations that should be explicitly stated in the conclusions.
 
 ---
 
@@ -933,28 +908,29 @@ This experiment investigated the effectiveness of pair code review compared to s
 - **Solo reviewers:** Mean = **2.13 ± 2.59** defects (range:  0-8)
 - **Pair reviewers:** Mean = **5.38 ± 7.82** defects (range: 0-18)
 - **Difference:** Pairs found **3.25 more defects** on average (+153%)
-- **Statistical test:** Paired t-test:  t(7) = 1.386, **p ≈ 0.10** (one-tailed)
-- **Effect size:** Cohen's d = **0.49** (medium effect by Cohen's conventions)
-- **Power:** Achieved power ≈ 35-40% (study was underpowered)
+- **Primary statistical test:** Wilcoxon signed-rank test: V = 11, **p = 0.205** (one-tailed)
+- **Supplementary test:** Paired t-test: t(7) = 1.387, **p = 0.104** (one-tailed)
+- **Effect sizes:** Cohen's d = **0.49** (medium); r = **0.29** (small to medium)
+- **Power:** Estimated achieved power ≈ 35-40% (study was severely underpowered)
 - **Decision:** **Failed to reject null hypothesis** at α = 0.05
 
-**Interpretation:** While pairs detected substantially more defects on average (153% increase), this difference was **not statistically significant** at the conventional α=0.05 level (p=0.10). However, the **medium effect size (d=0.49)** suggests a meaningful practical difference that warrants attention.  The non-significant result is likely due to: 
-- **Insufficient statistical power:** Only ~35-40% power to detect the observed effect; 28 participants would be needed for 80% power
+**Interpretation:** While pairs detected substantially more defects on average (153% increase), this difference was **not statistically significant** (Wilcoxon: p = 0.205; t-test: p = 0.104). However, the **medium effect size (d = 0.49)** suggests a meaningful practical difference that warrants attention.  The non-significant result is likely due to: 
+- **Insufficient statistical power:** Only ~35-40% power to detect the observed effect; 27-30 participants would be needed for 80% power
 - **High variability:** Solo SD=2.59 (122% of mean), Pair SD=7.82 (145% of mean)
 - **Individual differences:** Substantial variation in performance across participants
+- **Non-normal distribution:** Confirmed by Shapiro-Wilk test (W=0.6880, p=0.0016) with extreme outliers and clustered zeros
 
-**Practical significance:** The finding that pairs detect 3.25 additional defects (from 2. 13 to 5.38) may have **practical value** for software teams, even without statistical significance. A 153% improvement in defect detection could justify the cost of pair reviews in high-stakes contexts (e.g., security-critical code). However, this must be balanced against the **high variability**—not all pairs performed equally well. 
+**Practical significance:** The finding that pairs detect 3.25 additional defects (from 2.13 to 5.38) may have **practical value** for software teams, even without statistical significance. A 153% improvement in defect detection could justify the cost of pair reviews in high-stakes contexts (e.g., security-critical code). However, this must be balanced against the **high variability**—not all pairs performed equally well. 
 
 **2. False Positive Rates:**
 - **Solo:** 45% ± 38% (range: 0%-100%)
 - **Pair:** 48% ± 32% (range: 0%-100%)
-- **Statistical test:** Paired t-test:  t(7) = 0.65, p ≈ 0.54
+- **Statistical test:** Paired t-test:  t(7) = 0.702, p = 0.505
 - **Conclusion:** No significant difference between solo and pair false positive rates
 
 **Interpretation:** Both solo and pair reviewers had **high false positive rates** (~45-48%), meaning nearly half of all reported "defects" were invalid. This suggests:
 - **Unclear task definition:** Participants may not have fully understood what constitutes a valid defect
 - **Over-reporting strategy:** Time pressure or performance anxiety may have led to "report everything that looks suspicious" behavior
-- **Need for calibration:** Future experiments should include training on defect classification
 
 The wide range in FP rates (0%-100%) indicates substantial differences in participant understanding or approach to the task. 
 
@@ -982,6 +958,7 @@ The most striking finding is the **extreme heterogeneity** in performance:
 - **Small sample size (n=8):** Insufficient power to detect medium effects with statistical significance
 - **Type II error risk:** Non-significant result may reflect inadequate power rather than true null effect
 - **High variability:** Individual differences create substantial noise, requiring larger samples to detect treatment effects
+- **Non-normal distribution:** Addressed by using Wilcoxon signed-rank test as primary analysis
 
 **Design limitations:**
 - **Code difficulty imbalance:** Code 2 had 2× more defects than Code 1, potentially confounding results
@@ -994,22 +971,10 @@ The most striking finding is the **extreme heterogeneity** in performance:
 - **Limited code samples:** Only 2 Java files in academic algorithm domains; unclear if results apply to other languages, domains, or code types
 - **Specific collaboration mode:** Results apply to synchronous driver-navigator pairing, which is one of many collaborative review approaches
 
-**5. Future Work:**
 
-To address the limitations of this study, future research should: 
+**6. Final Conclusions:**
 
-1. **Increase sample size:** Recruit ≥28 participants to achieve 80% power for detecting medium effects
-2. **Control code difficulty:** Ensure both code samples have equal numbers of defects and similar complexity
-3. **Include professional developers:** Replicate with industry practitioners to assess external validity
-4. **Provide defect classification training:** Reduce task understanding variability and FP rates through explicit training
-5. **Collect timing data:** Address RQ2 by measuring time spent and calculating defect detection efficiency
-6. **Diversify code samples:** Include multiple languages, domains, and code sizes
-7. **Test different collaboration modes:** Compare synchronous vs. asynchronous, driver-navigator vs. independent review
-8. **Use non-parametric tests:** Given normality violations, report Wilcoxon signed-rank test as primary analysis **[TO COMPLETE]**
-
-**6. Conclusions:**
-
-This exploratory study provides **preliminary evidence** that pair code review may improve defect detection compared to solo review, with pairs finding an average of 3.25 more defects (153% increase, Cohen's d=0.49). However, this difference did not reach statistical significance (p=0.10), likely due to insufficient statistical power (n=8, achieved power ~35-40%).
+This exploratory study provides **preliminary evidence** that pair code review may improve defect detection compared to solo review, with pairs finding an average of 3.25 more defects (153% increase, Cohen's d=0.49, r=0.29). However, this difference did not reach statistical significance (Wilcoxon: p=0.205; t-test: p=0.104), likely due to insufficient statistical power (n=8, achieved power ~35-40%).
 
 The **high variability** in performance suggests that individual reviewer capability and pair dynamics may be as important—or more important—than the choice between solo and pair review. Organizations should focus on:
 - Selecting skilled reviewers
@@ -1019,8 +984,10 @@ The **high variability** in performance suggests that individual reviewer capabi
 
 **Critical caveat:** Results are based on senior computer science students reviewing academic Java code in a controlled laboratory setting. Generalization to professional software development requires replication with industry practitioners, diverse code samples, and realistic review workflows.
 
-**Final recommendation:** Given the medium effect size and practical significance, pair code review warrants further investigation with adequately powered studies. Organizations interested in adopting pair review should conduct pilot studies within their specific context to assess effectiveness given their team composition, code characteristics, and development workflows.
+**Final recommendation:** Given the medium effect size and practical significance, pair code review warrants further investigation with adequately powered studies. Organizations interested in adopting pair review should conduct pilot studies within their specific context to assess effectiveness given their team composition, code characteristics, and development workflows. The substantial directional trend observed in this study, while not reaching statistical significance, suggests that the question of pair code review effectiveness remains open and deserving of additional research with larger, more diverse samples.
 
 ---
 
 **End of Report**
+
+---
